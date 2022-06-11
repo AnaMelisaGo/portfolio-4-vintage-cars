@@ -5,9 +5,10 @@
 
 :root {
     /* colors */
-    --white: #fafafa;
+    --vintage-drk-brown: #6f5c42;
+    --vintage-white: #f3f3f3;
     --vintage-brown: #b1987f;
-    --vintage-light: #eee2d2;
+    --vintage-red: #C1624E;
     /* fonts */
     --space-mono: 'Space Mono', monospace;
     --elite: 'Special Elite', cursive;
@@ -22,7 +23,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     
-    color: var(--white);
+    color: var(--vintage-white);
     font-family: var(--space-mono)
 }
 
@@ -30,18 +31,29 @@ hr {
     margin: 0 0 10px 0
 }
 
+h1 {
+    font-family: var(--abril);
+}
+
 .uppercase {
     text-transform: uppercase;
 }
 
-/* -----------  Text colors  ---------------------------------------------------------------------------------------------- */
+/* -----------  Text styles ---------------------------------------------------------------------------------- */
+.t-white {
+    color: var(--vintage-white);
+}
+
+.t-drk-brown {
+    color: var(--vintage-drk-brown)
+}
 
 .t-red {
     color: red;
 }
 
-.t-white {
-    color: var(--white);
+.text-center {
+    text-align: center;
 }
 
 /* -----------  Navbar  -------------------------------------------------------------------------------------------------- */
@@ -49,13 +61,13 @@ hr {
 .navbar-nav .nav-item,
 .navbar .navbar-nav .nav-link {
     padding: 0 30px 0;
-    color: var(--white);
+    color: var(--vintage-white);
     font-size: 18px;
     font-family: var(--elite);
 }
 
 .navbar .navbar-nav .nav-link:hover {
-    color: var(--vintage-light);
+    color: var(--vintage-red);
 }
 
 /* from https://css-tricks.com/perfect-full-page-background-image/ */
@@ -93,6 +105,27 @@ hr {
     text-align: center;
 }
 
+.navbar-toggler i {
+    font-size: 30px;
+}
+
+
+/* -----------  Footer  -------------------------------------------------------------------------------------------------- */
+.footer {
+    display: flex;
+}
+
+.footer-cont {
+    align-self: flex-end;
+    text-align: center;
+}
+.footer-link {
+    color: var(--vintage-drk-brown);
+}
+
+.footer .footer-link:hover {
+    color: var(--vintage-red)
+}
 
 
 /* Responsive */
@@ -122,7 +155,9 @@ hr {
     .navbar-nav .nav-item,
     .navbar .navbar-nav .nav-link {
         padding: 0 10px 0;
-}
+        margin-left: 45%;
+    }
+
 }
 
 /* medium devices */
@@ -130,6 +165,12 @@ hr {
     .navbar-brand img {
         width: 150px;
     }
+    .navbar-nav .nav-item,
+    .navbar .navbar-nav .nav-link {
+        
+        margin-left: 30%;
+    }
+
 
 }
 
