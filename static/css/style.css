@@ -17,7 +17,7 @@
 
 /* -----------  Global  -------------------------------------------------------------------------------------------------- */
 body { 
-    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(28, 27, 27) 78.9%) no-repeat center center fixed;
+    background: linear-gradient(178.6deg, rgb(22, 25, 25) 40.8%, rgb(45, 54, 60) 59.8%) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -125,6 +125,10 @@ h1 {
 
 .footer .footer-link:hover {
     color: var(--vintage-red)
+}
+
+.footer-cont p {
+    font-size: 13px;
 }
 
 
