@@ -1,0 +1,35 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand t-white" href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}" alt="Web Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars t-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="mx-auto mt-3">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 uppercase">
+                    <li class="nav-item">
+                        <a class="nav-link {{ home }}" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<hr>

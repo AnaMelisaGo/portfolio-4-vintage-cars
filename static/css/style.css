@@ -1,0 +1,146 @@
+/* -----------  Google fonts  -------------------------------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Space+Mono&family=Special+Elite&display=swap');
+
+/* -----------  Root  -------------------------------------------------------------------------------------------------- */
+
+:root {
+    /* colors */
+    --white: #fafafa;
+    --vintage-brown: #b1987f;
+    --vintage-light: #eee2d2;
+    /* fonts */
+    --space-mono: 'Space Mono', monospace;
+    --elite: 'Special Elite', cursive;
+    --abril: 'Abril Fatface', cursive;
+}
+
+/* -----------  Global  -------------------------------------------------------------------------------------------------- */
+body { 
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(28, 27, 27) 78.9%) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+    color: var(--white);
+    font-family: var(--space-mono)
+}
+
+hr {
+    margin: 0 0 10px 0
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* -----------  Text colors  ---------------------------------------------------------------------------------------------- */
+
+.t-red {
+    color: red;
+}
+
+.t-white {
+    color: var(--white);
+}
+
+/* -----------  Navbar  -------------------------------------------------------------------------------------------------- */
+
+.navbar-nav .nav-item,
+.navbar .navbar-nav .nav-link {
+    padding: 0 30px 0;
+    color: var(--white);
+    font-size: 18px;
+    font-family: var(--elite);
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: var(--vintage-light);
+}
+
+/* from https://css-tricks.com/perfect-full-page-background-image/ */
+.navbar .navbar-nav .nav-link:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #d0d584;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+/* from https://css-tricks.com/perfect-full-page-background-image/ */
+.navbar .navbar-nav .nav-link:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.navbar .navbar-nav .active {
+    color: var(--vintage-brown);
+    font-weight: bolder;
+}
+
+
+.navbar .navbar-toggler {
+    border-color: transparent;
+}
+
+.navbar>.container {
+    display: block;
+    text-align: center;
+}
+
+
+
+/* Responsive */
+
+@media (max-width: 991px) {
+    
+    hr {
+        border-top: 0;
+    }
+    
+    .navbar>.container {
+        display: flex;
+        flex-wrap: inherit;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-right: 0;
+        margin-left: 40%;
+    }
+
+    .navbar-nav .nav-item {
+        text-align: end;
+    }
+    .navbar-brand img {
+        width: 150px;
+    }
+
+    .navbar-nav .nav-item,
+    .navbar .navbar-nav .nav-link {
+        padding: 0 10px 0;
+}
+}
+
+/* medium devices */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        width: 150px;
+    }
+
+}
+
+/* small devices */
+@media (max-width: 575.98px) {
+    .navbar-brand img {
+        width: 100px;
+    }
+
+    .navbar>.container {
+        margin-left: 30%;
+    }
+
+}
