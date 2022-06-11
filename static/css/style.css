@@ -9,6 +9,7 @@
     --vintage-white: #f3f3f3;
     --vintage-brown: #b1987f;
     --vintage-red: #C1624E;
+    --vintage-trans-black: rgba(0, 0, 0, .8);
     /* fonts */
     --space-mono: 'Space Mono', monospace;
     --elite: 'Special Elite', cursive;
@@ -131,6 +132,15 @@ h1 {
     font-size: 13px;
 }
 
+
+/* homepage */
+.carousel-caption {
+    background-color: var(--vintage-trans-black);
+}
+
+.height-100 {
+    height: 100%;
+}
 
 /* Responsive */
 
