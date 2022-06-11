@@ -1,4 +1,4 @@
-# Project Title/Name
+# Vintage Cars
 ***
  
 ## Table of Contents:
@@ -24,8 +24,8 @@
  
 ***
  
-## Welcome to <<project-name>>!
- 
+## Welcome to Vintage Cars!
+
 ![show final site image here](assets/docs/image.png)
  
 ***
