@@ -26,7 +26,6 @@ class PostCar(models.Model):
     )
     featured_car = models.BooleanField(default=False)
 
-
     class Meta:
         """
         Display post in descending order according to the date
