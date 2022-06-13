@@ -3,6 +3,7 @@ from django_summernote.admin import SummernoteModelAdmin
 from .models import PostCar, Comment
 
 
+@admin.register(PostCar)
 class PostCarAdmin(SummernoteModelAdmin):
     """ Use summernote int the content field in admin """
     list_filter = ('status', 'date_created', 'year_manufactured')
@@ -16,5 +17,4 @@ class PostCarAdmin(SummernoteModelAdmin):
         queryset.update(featured_car=True)
 
 
-admin.site.register(PostCar, PostCarAdmin)
 admin.site.register(Comment)
