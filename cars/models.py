@@ -12,12 +12,13 @@ class PostCar(models.Model):
     """
     car_model_title = models.CharField(max_length=200)
     year_manufactured = models.IntegerField(
-        validators=[MaxValueValidator(2000), MinValueValidator(1875)]
+        validators=[MinValueValidator(1875), MaxValueValidator(2000)]
     )
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='post_cars'
     )
     date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
     content = models.TextField()
     car_image = CloudinaryField('image', default='placeholder')
     status = models.IntegerField(choices=STATUS, default=0)
@@ -25,6 +26,7 @@ class PostCar(models.Model):
         User, related_name='like_cars', blank=True
     )
     featured_car = models.BooleanField(default=False)
+    can_rent = models.BooleanField(default=False)
 
     class Meta:
         """
