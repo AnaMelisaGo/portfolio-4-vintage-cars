@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{%  block content %}
+
+<div class="container-fluid">
+	<h2 class="text-center">VIEW ALL VINTAGE CARS</h2>
+	<div class="container contain">
+		<div class="row">
+
+			<!-- Photo container -->
+			{% for post in post_car %}
+			<div class="col-lg-4 col-md-12 contain-photo">
+				<div class="row">
+					<div class="col-lg-4 col-md-12">
+						<a href="#" class="btn view-more ms-3"><i class="far fa-eye px-3"></i></a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-12">
+						<article class="text-left">
+							<h2>{{ post.car_model_title }}</h2>
+							<h4>({{ post.year_manufactured }})</h4>
+						</article>
+					</div>
+				</div>
+
+				{% if "placeholder" in post.car_image %}
+				<img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
+				{% else %}
+				<img src="{{ post.car_image.url }}" alt="Car Image">
+				{% endif %}
+			</div>
+			{% endfor %}
+
+			<!-- Pagination -->
+			{% if post.has_other_pages %}
+			<ul class="pagination">
+				{% if post.has_previous %}
+					<li><a href="?page={{post.previous_page_number}}">&laquo;</a></li>
+				{% else %}
+					<li class="disabled"><span>&laquo;</span></li>
+				{% endif %}
+
+				{% for i in post.paginator.page_range %}
+					{% if post.number == i %}
+						<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+					{% else %}
+						<li><a href="?page={{ i }}">{{ i }}</a></li>
+					{% endif %}
+				{% endfor %}
+				{% if post.has_next %}
+					<li><a href="?page{{ post.next_page_number }}">&raquo;</a></li>
+				{% else %}
+					<li class="disabled"><span>&raquo;</span></li>
+				{% endif %}
+			</ul>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
