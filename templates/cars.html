@@ -12,25 +12,33 @@
 			<!-- Photo container -->
 			{% for post in post_car %}
 			<div class="col-lg-4 col-md-12 contain-photo">
-				<div class="row">
-					<div class="col-lg-4 col-md-12">
-						<a href="#" class="btn view-more ms-3"><i class="far fa-eye px-3"></i></a>
+				<a href="{% url 'car_detail' post.id %}">
+					<div class="row">
+						<div class="col-lg-4 col-md-12">
+							<div class="view-more text-white">
+								<button class="btn ms-3"><i class="far fa-eye px-3"></i></button>
+								<i class="fas fa-heart"></i> {{ post.number_of_likes }}
+								<span class="col-1">
+									<i class="far fa-comments"></i>
+								</span>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-12">
-						<article class="text-left">
-							<h2>{{ post.car_model_title }}</h2>
-							<h4>({{ post.year_manufactured }})</h4>
-						</article>
+					<div class="row">
+						<div class="col-lg-4 col-md-12">
+							<article class="text-left">
+								<h2>{{ post.car_model_title }}</h2>
+								<h4>({{ post.year_manufactured }})</h4>
+							</article>
+						</div>
 					</div>
-				</div>
-
-				{% if "placeholder" in post.car_image %}
-				<img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
-				{% else %}
-				<img src="{{ post.car_image.url }}" alt="Car Image">
-				{% endif %}
+	
+					{% if "placeholder" in post.car_image %}
+					<img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
+					{% else %}
+					<img src="{{ post.car_image.url }}" alt="Car Image">
+					{% endif %}
+				</a>
 			</div>
 			{% endfor %}
 
