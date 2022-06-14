@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from django.core.paginator import Paginator
 from .models import PostCar
@@ -23,11 +23,34 @@ class CarPageView(View):
         """ return cars page """
         post_car = PostCar.objects.filter(status=1).order_by('-date_created')
         paginator = Paginator(post_car, 6)
-
         page_number = request.GET.get('page')
         page_car = paginator.get_page(page_number)
         context = {
             'cars': 'active',
-            'post_car': page_car
+            'post_car': page_car,
         }
         return render(request, 'cars.html', context)
+
+
+class CarDetail(View):
+    """ Car detail
+        ---------------- more docstring -----------------------
+    """
+    def get(self, request, post_id, *args, **kwargs):
+        """ docstring """
+        queryset = PostCar.objects.filter(status=1)
+        post_car = get_object_or_404(queryset, pk=post_id)
+        comments = post_car.comments.filter(
+            post_id=post_id).order_by('date_created')
+        liked = False
+        if post_car.likes.filter(id=self.request.user.id).exists():
+            liked = True
+        return render(
+            request,
+            "car-detail.html",
+            {
+                'post_car': post_car,
+                'comments': comments,
+                'liked': liked,
+            }
+        )
