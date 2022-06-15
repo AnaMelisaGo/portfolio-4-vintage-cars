@@ -253,12 +253,15 @@ h6 {
 
 
 /* car details */
-
+.masthead {
+    overflow: hidden;
+}
 .main-text {
     position: absolute;
     bottom: 0;
     z-index: 1;
     background-color: var(--vintage-trans-black);
+    max-width: 100%;
 }
 
 /* Responsive */

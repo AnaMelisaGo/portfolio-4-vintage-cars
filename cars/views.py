@@ -49,6 +49,7 @@ class CarDetail(View):
             request,
             "car-detail.html",
             {
+                'cars': 'active',
                 'post_car': post_car,
                 'comments': comments,
                 'liked': liked,
