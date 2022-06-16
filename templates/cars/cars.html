@@ -14,33 +14,32 @@
 			<!-- Photo container -->
 			{% for post in post_car %}
 			<div class="col-lg-4 col-md-12 contain-photo">
-				<a href="{% url 'car_detail' post.id %}">
-					<div class="row">
-						<div class="col-lg-4 col-md-12">
-							<div class="view-more text-white">
-								<button class="btn ms-3"><i class="far fa-eye px-3"></i></button>
-								<i class="fas fa-heart"></i> {{ post.number_of_likes }}
-								<span class="col-1">
-									<i class="far fa-comments"></i>
-								</span>
-							</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-12">
+						<div class="view-more text-white ">
+							<a href="{% url 'car_detail' post.id %}"><i class="far fa-eye px-3"></i></a>
+							<!-- <button class="btn ms-3"><i class="far fa-eye px-3"></i></button> -->
+							<i class="fas fa-heart"></i> {{ post.number_of_likes }}
+							<span class="col-1">
+								<i class="far fa-comments"></i>
+							</span>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-lg-4 col-md-12">
-							<article class="text-left">
-								<h2>{{ post.car_model_title }}</h2>
-								<h4>({{ post.year_manufactured }})</h4>
-							</article>
-						</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-12">
+						<article class="text-left">
+							<h2>{{ post.car_model_title }}</h2>
+							<h4>({{ post.year_manufactured }})</h4>
+						</article>
 					</div>
-	
-					{% if "placeholder" in post.car_image %}
-					<img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
-					{% else %}
-					<img src="{{ post.car_image.url }}" alt="Car Image">
-					{% endif %}
-				</a>
+				</div>
+
+				{% if "placeholder" in post.car_image %}
+				<img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
+				{% else %}
+				<img src="{{ post.car_image.url }}" alt="Car Image">
+				{% endif %}
 			</div>
 			{% endfor %}
 
@@ -48,22 +47,22 @@
 			{% if post.has_other_pages %}
 			<ul class="pagination">
 				{% if post.has_previous %}
-					<li><a href="?page={{post.previous_page_number}}">&laquo;</a></li>
+				<li><a href="?page={{post.previous_page_number}}">&laquo;</a></li>
 				{% else %}
-					<li class="disabled"><span>&laquo;</span></li>
+				<li class="disabled"><span>&laquo;</span></li>
 				{% endif %}
 
 				{% for i in post.paginator.page_range %}
-					{% if post.number == i %}
-						<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-					{% else %}
-						<li><a href="?page={{ i }}">{{ i }}</a></li>
-					{% endif %}
+				{% if post.number == i %}
+				<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+				{% else %}
+				<li><a href="?page={{ i }}">{{ i }}</a></li>
+				{% endif %}
 				{% endfor %}
 				{% if post.has_next %}
-					<li><a href="?page{{ post.next_page_number }}">&raquo;</a></li>
+				<li><a href="?page{{ post.next_page_number }}">&raquo;</a></li>
 				{% else %}
-					<li class="disabled"><span>&raquo;</span></li>
+				<li class="disabled"><span>&raquo;</span></li>
 				{% endif %}
 			</ul>
 			{% endif %}
