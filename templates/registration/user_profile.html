@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %} User Profile {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<!-- Top section of Profile page -->
+<section>
+    <div class="container vintage-profile">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            {% if user.is_authenticated %}
+            <div class="text-end profile-icon">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="col">
+                <h3 class="profile-bar mx-5">Hello, {{ user.username }}</h3>
+            </div>
+            <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link prof-link px-2 t-white mx-2">Add Post</a></li>
+                <button type="button" class="btn t-white mx-2" data-bs-toggle="modal" data-bs-target="#modal-logout">Log
+                    Out</button>
+            </ul>
+            {% else %}
+            <div class="text-end profile-icon">
+                <i class="far fa-user-circle"></i>
+            </div>
+            <div class="col">
+                <h3 class="text-uppercase mx-5">Welcome</h3>
+            </div>
+            <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="{% url 'login' %}" class="nav-link prof-link px-2 t-white mx-2">Log In</a></li>
+            </ul>
+            {% endif %}
+
+
+
+
+
+            <!-- <form class="col-10 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            </form> -->
+        </div>
+    </div>
+    <!-- Modal to confirm log out -->
+    <div class="modal fade" id="modal-logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Log out</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are your sure you want to log out?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a href="{% url 'logout' %}">
+                        <button type="button" class="btn btn-danger">Log out</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Post section of profile page -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 text-center mt-5 pt-3">
+                {% if user.is_authenticated %}
+                    {%  for post in post_car  %}
+                        {% if user.id == post.author.id %}
+                            <p>{{ post.car_model_title }}</p>
+                            <p>{{ post.year_manufactured }}</p>
+                        {% else %}
+                            <p>No posts yet.</p>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                <p>Please log in to view and edit your posts.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+{% endblock %}

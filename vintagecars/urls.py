@@ -20,4 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', include('cars.urls'), name='cars_urls'),
+    path('profile/', include('django.contrib.auth.urls')),
+    path('profile/', include('userprofile.urls'), name='user_profile_urls')
+
 ]

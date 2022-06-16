@@ -29,7 +29,7 @@ class CarPageView(View):
             'cars': 'active',
             'post_car': page_car,
         }
-        return render(request, 'cars.html', context)
+        return render(request, 'cars/cars.html', context)
 
 
 class CarDetail(View):
@@ -47,7 +47,7 @@ class CarDetail(View):
             liked = True
         return render(
             request,
-            "car-detail.html",
+            "cars/car-detail.html",
             {
                 'cars': 'active',
                 'post_car': post_car,
