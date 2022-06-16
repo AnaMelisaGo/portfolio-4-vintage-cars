@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.urls import reverse
 
 STATUS = ((0, 'Default'), (1, 'Published'))
 
@@ -46,6 +47,13 @@ class PostCar(models.Model):
         Function to count the number of likes
         """
         return self.likes.count()
+    
+    def get_absolute_url(self):
+        """
+        To return to car_detail page
+        """
+        return reverse('car_detail', args=(str(self.id)))
+
 
 
 class Comment(models.Model):

@@ -17,7 +17,7 @@
                 <h3 class="profile-bar mx-5">Hello, {{ user.username }}</h3>
             </div>
             <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link prof-link px-2 t-white mx-2">Add Post</a></li>
+                <li><a href="{% url 'add_car' %}" class="nav-link prof-link px-2 t-white mx-2">Add Post</a></li>
                 <button type="button" class="btn t-white mx-2" data-bs-toggle="modal" data-bs-target="#modal-logout">Log
                     Out</button>
             </ul>
@@ -32,10 +32,6 @@
                 <li><a href="{% url 'login' %}" class="nav-link prof-link px-2 t-white mx-2">Log In</a></li>
             </ul>
             {% endif %}
-
-
-
-
 
             <!-- <form class="col-10 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
@@ -68,20 +64,81 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 offset-md-2 text-center mt-5 pt-3">
-                {% if user.is_authenticated %}
-                    {%  for post in post_car  %}
-                        {% if user.id == post.author.id %}
-                            <p>{{ post.car_model_title }}</p>
-                            <p>{{ post.year_manufactured }}</p>
-                        {% else %}
-                            <p>No posts yet.</p>
+
+            {% if user.is_authenticated %}
+                {%  for post in post_car  %}
+                    {% if user.id == post.author.id %}
+                        <!-- Show all post if the author is the user -->
+                        <div class="col-lg-4 col-md-12 contain-photo">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="view-more text-white ">
+                                        <a href="{% url 'car_detail' post.id %}"><i class="far fa-eye px-3"></i></a>
+                                        <!-- <button class="btn ms-3"><i class="far fa-eye px-3"></i></button> -->
+                                        <i class="fas fa-heart"></i> {{ post.number_of_likes }}
+                                        <span class="col-1">
+                                            <i class="far fa-comments"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12">
+                                    <article class="text-left">
+                                        <h2>{{ post.car_model_title }}</h2>
+                                        <h4>({{ post.year_manufactured }})</h4>
+                                    </article>
+                                </div>
+                            </div>
+            
+                            {% if "placeholder" in post.car_image %}
+                            <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
+                            {% else %}
+                            <img src="{{ post.car_image.url }}" alt="Car Image">
+                            {% endif %}
+                        </div>
+                        <!-- Pagination -->
+                        {% if post.has_other_pages %}
+                        <ul class="pagination">
+                            {% if post.has_previous %}
+                            <li><a href="?page={{post.previous_page_number}}">&laquo;</a></li>
+                            {% else %}
+                            <li class="disabled"><span>&laquo;</span></li>
+                            {% endif %}
+
+                            {% for i in post.paginator.page_range %}
+                                {% if post.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if post.has_next %}
+                            <li><a href="?page{{ post.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                            <li class="disabled"><span>&raquo;</span></li>
+                            {% endif %}
+                        </ul>
                         {% endif %}
-                    {% endfor %}
-                {% else %}
-                <p>Please log in to view and edit your posts.</p>
-                {% endif %}
+                    {% else %}
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 mt-5 pt-3">
+                            <p>No posts yet.</p>
+
+                        </div>
+                    </div>
+
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+            <div class="row">
+                <div class="col-md-8 offset-md-2 mt-5 pt-3">
+                    <p>Please log in to view and edit your posts.</p>
+
+                </div>
             </div>
+            {% endif %}
+
         </div>
     </div>
 

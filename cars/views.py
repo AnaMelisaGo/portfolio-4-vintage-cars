@@ -33,8 +33,9 @@ class CarPageView(View):
 
 
 class CarDetail(View):
-    """ Car detail
-        ---------------- more docstring -----------------------
+    """ 
+    To view all post in cars page
+    --- more------------------------------------------------------------
     """
     def get(self, request, post_id, *args, **kwargs):
         """ docstring """
@@ -47,7 +48,7 @@ class CarDetail(View):
             liked = True
         return render(
             request,
-            "cars/car-detail.html",
+            "cars/car_detail.html",
             {
                 'cars': 'active',
                 'post_car': post_car,
@@ -55,3 +56,16 @@ class CarDetail(View):
                 'liked': liked,
             }
         )
+
+
+class AddCarPost(View):
+    """ To add a post about a car """
+
+    def get(self, request, *args, **kwargs):
+        """
+        To post a car and view
+        """
+        context = {
+            'cars': 'active'
+        }
+        return render(request, 'cars/add_car.html', context)

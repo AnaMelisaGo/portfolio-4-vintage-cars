@@ -6,4 +6,5 @@ urlpatterns = [
     path('cars/', views.CarPageView.as_view(), name='cars'),
     path('car_detail/<int:post_id>', views.CarDetail.as_view(
     ), name='car_detail'),
+    path('add_car/', views.AddCarPost.as_view(), name='add_car')
 ]
