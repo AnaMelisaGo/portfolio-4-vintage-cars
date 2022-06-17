@@ -1,7 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from django.views import generic, View
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views import View
 from django.core.paginator import Paginator
 from .models import PostCar
+from .forms import AddCarForm
+
+from cloudinary.forms import cl_init_js_callbacks
 
 
 class HomePageView(View):
@@ -23,8 +26,8 @@ class CarPageView(View):
         """ return cars page """
         post_car = PostCar.objects.filter(status=1).order_by('-date_created')
         paginator = Paginator(post_car, 6)
-        page_number = request.GET.get('page')
-        page_car = paginator.get_page(page_number)
+        page = request.GET.get('page')
+        page_car = paginator.get_page(page)
         context = {
             'cars': 'active',
             'post_car': page_car,
@@ -63,9 +66,36 @@ class AddCarPost(View):
 
     def get(self, request, *args, **kwargs):
         """
-        To post a car and view
+        To view AddCarForm in add_car.html
         """
+        form = AddCarForm(request.POST)
         context = {
-            'cars': 'active'
+            'cars': 'active',
+            'form': form,
+        }
+        return render(request, 'cars/add_car.html', context)
+
+    def post(self, request, *args, **kwargs):
+        """ 
+        To post
+        """
+        if request.method == "POST":
+            form = AddCarForm(request.POST, request.FILES)
+            
+            if form.is_valid():
+                car_post = PostCar()
+                car_post.car_model_title = request.POST.get('car_model_title')
+                car_post.year_manufactured = request.POST.get('year_manufactured')
+                car_post.author = request.user
+                car_post.content = request.POST.get('content')
+                car_post.car_image = request.FILES.get('car_image')
+                car_post.status = request.POST.get('status')
+                car_post.save()
+                return redirect('user_profile')
+        else:
+            form = AddCarForm()
+
+        context = {
+            'form': form
         }
         return render(request, 'cars/add_car.html', context)

@@ -3,17 +3,26 @@
 
 {% load static %}
 {% block content %}
+{% load cloudinary %}
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row text-center my-5">
         <div class="col-md-8 offset-md-2 col-sm">
             <!-- header -->
             <h2>Add your favorite car</h2>
         </div>
     </div>
     <!-- Post form -->
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-md-8 offset-md-2 col-sm">
-            <p>Form to create post</p>
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="d-flex justify-content-center mb-5 pb-5 pt-3">
+                        <button type="submit" class="btn vintage-btn">Post</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

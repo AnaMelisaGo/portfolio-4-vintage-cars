@@ -269,10 +269,25 @@ footer {
 
 .main-text {
     position: absolute;
-    bottom: 0;
+    top: 15px;
     z-index: 1;
     background-color: var(--vintage-trans-black);
     max-width: 100%;
+    padding-left: 50px;
+}
+
+.image-container {
+    background-color: rgba(57, 62, 93, 0.7);
+	padding: 0;
+	overflow: hidden;
+	max-width: 1500px;
+	margin: 15px;
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
 }
 
 /* profile sign up */
