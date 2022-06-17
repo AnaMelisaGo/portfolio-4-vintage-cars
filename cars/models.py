@@ -48,11 +48,11 @@ class PostCar(models.Model):
         """
         return self.likes.count()
     
-    def get_absolute_url(self):
-        """
-        To return to car_detail page
-        """
-        return reverse('car_detail', args=(str(self.id)))
+    # def get_absolute_url(self):
+    #     """
+    #     To return to car_detail page
+    #     """
+    #     return reverse('car_detail', args=(str(self.id)))
 
 
 
