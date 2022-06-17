@@ -14,7 +14,7 @@
                 <i class="fas fa-user-circle"></i>
             </div>
             <div class="col">
-                <h3 class="profile-bar mx-5">Hello, {{ user.username }}</h3>
+                <h3 class="profile-bar mx-5">Hello {{ user.username }}</h3>
             </div>
             <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="{% url 'add_car' %}" class="nav-link prof-link px-2 t-white mx-2">Add Post</a></li>
@@ -91,35 +91,13 @@
                                 </div>
                             </div>
             
-                            {% if "placeholder" in post.car_image %}
+                            {% if "placeholder" in post.car_image.url %}
                             <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
                             {% else %}
                             <img src="{{ post.car_image.url }}" alt="Car Image">
                             {% endif %}
                         </div>
                         <!-- Pagination -->
-                        {% if post.has_other_pages %}
-                        <ul class="pagination">
-                            {% if post.has_previous %}
-                            <li><a href="?page={{post.previous_page_number}}">&laquo;</a></li>
-                            {% else %}
-                            <li class="disabled"><span>&laquo;</span></li>
-                            {% endif %}
-
-                            {% for i in post.paginator.page_range %}
-                                {% if post.number == i %}
-                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                                {% else %}
-                                <li><a href="?page={{ i }}">{{ i }}</a></li>
-                                {% endif %}
-                            {% endfor %}
-                            {% if post.has_next %}
-                            <li><a href="?page{{ post.next_page_number }}">&raquo;</a></li>
-                            {% else %}
-                            <li class="disabled"><span>&raquo;</span></li>
-                            {% endif %}
-                        </ul>
-                        {% endif %}
                     {% else %}
                     <div class="row">
                         <div class="col-md-8 offset-md-2 mt-5 pt-3">
@@ -127,9 +105,26 @@
 
                         </div>
                     </div>
-
                     {% endif %}
                 {% endfor %}
+                <ul class="pagination">
+                    {% if post_car.has_previous %}
+                    <li><a href="?page={{ post_car.previous_page_number }}" class="page-link">&laquo;</a></li>
+                    {% endif %}
+
+                    {% for i in post_car.paginator.page_range %}
+                        {% if post_car.number == i %}
+                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if post_car.has_next %}
+                    <li><a href="?page={{ post_car.next_page_number }}" class="page-link">&raquo;</a></li>
+                    {% else %}
+                    <li class="disabled"><span>&raquo;</span></li>
+                    {% endif %}
+                </ul>
             {% else %}
             <div class="row">
                 <div class="col-md-8 offset-md-2 mt-5 pt-3">
