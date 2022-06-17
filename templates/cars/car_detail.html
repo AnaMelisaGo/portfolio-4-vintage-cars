@@ -4,7 +4,7 @@
 
 {% block content %}
 <header class="masthead">
-    <div class="container-fluid mt-3">
+    
         <div class="row justify-content-center">
             <div class="col position-relative">
                 <div class="row">
@@ -17,7 +17,7 @@
                             {{ post_car.date_created }}
                         </span>
                     </div>
-                    <div class="masthead-image w-100">
+                    <div class="masthead-image image-container justify-content-center">
                         {% if "placeholder" in post_car.car_image.url %}
                         <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
                         {% else %}
@@ -29,7 +29,7 @@
 
             </div>
         </div>
-    </div>
+    
 </header>
 <!-- Post Content-->
 <article class="mb-4 mt-4">
