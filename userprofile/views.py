@@ -11,12 +11,9 @@ class UserProfileView(View):
     def get(self, request):
         """ render user profile """
         post_car = PostCar.objects.filter(status=1).order_by('-date_created')
-        paginator = Paginator(post_car, 6)
-        page_number = request.GET.get('page')
-        page_car = paginator.get_page(page_number)
         context = {
             'user_profile': 'active',
-            'post_car': page_car,
+            'post_car': post_car,
         }
         return render(request, 'registration/user_profile.html', context)
 
