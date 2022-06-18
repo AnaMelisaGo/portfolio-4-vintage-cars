@@ -4,35 +4,33 @@
 
 {% block content %}
 <header class="masthead">
-    
-        <div class="row justify-content-center">
-            <div class="col position-relative">
-                <div class="row">
-                    <div class="col post-heading main-text">
-                        <h1 class="px-4">{{ post_car.car_model_title }}</h1>
-                        <h2 class="subheading px-4">({{ post_car.year_manufactured }})</h2>
-                        <span class="meta px-4">
-                            Posted by
-                            <a href="#!">{{ post_car.author }}</a>
-                            {{ post_car.date_created }}
-                        </span>
-                    </div>
-                    <div class="masthead-image image-container justify-content-center">
-                        {% if "placeholder" in post_car.car_image.url %}
-                        <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
-                        {% else %}
-                        <img src="{{ post_car.car_image.url }}" alt="Car image" width="100%">
-                        {% endif %}
-                    </div>
-
+    <div class="row justify-content-center">
+        <div class="col position-relative">
+            <div class="row">
+                <div class="col post-heading main-text">
+                    <h1 class="px-4">{{ post_car.car_model_title }}</h1>
+                    <h2 class="subheading px-4">({{ post_car.year_manufactured }})</h2>
+                    <span class="meta px-4">
+                        Posted by
+                        <a href="#!">{{ post_car.author }}</a>
+                        {{ post_car.date_created }}
+                    </span>
                 </div>
-
+                <div class="masthead-image image-container justify-content-center">
+                    {% if "placeholder" in post_car.car_image.url %}
+                    <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
+                    {% else %}
+                    <img src="{{ post_car.car_image.url }}" alt="Car image" width="100%">
+                    {% endif %}
+                </div>
             </div>
         </div>
+    </div>
     
 </header>
 <!-- Post Content-->
 <article class="mb-4 mt-4">
+    <a class="up-button"></a>
     <div class="container px-4 px-lg-5">
         <div class="row justify-content-center">
             <div class="col-md-10 col-xl-7">

@@ -4,11 +4,14 @@
 /* -----------  Root  -------------------------------------------------------------------------------------------------- */
 
 :root {
-    /* colors */
-    --vintage-drk-brown: #6f5c42;
+    /* colors scheme */
+    --vintage-drk-brown: #6E5644;
     --vintage-white: #f3f3f3;
     --vintage-brown: #b1987f;
-    --vintage-red: #C1624E;
+    --vintage-orange: #D3A24C;
+    --vintage-yellow: #ECE7C2;
+    --vintage-red: #CD6C4A;
+    --vintage-green: #73BDA8;
     --vintage-trans-black: rgba(0, 0, 0, .8);
     /* fonts */
     --space-mono: 'Space Mono', monospace;
@@ -20,6 +23,7 @@
 body { 
     margin: 0;
     padding: 0;
+    /* Shecodes */
     background: linear-gradient(179.2deg, rgb(34, 34, 34) 0%, rgb(15, 18, 22) 29.7%, rgb(37, 47, 53) 63.4%, rgba(49, 65, 75, 0.8) 100.1%) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -199,7 +203,7 @@ footer {
     height: 100%;
 	top: 0;
 	left: 0;
-	opacity: 0.5;
+	opacity: 0.6;
 	-webkit-transition: all 4s ease;
 	-moz-transition: all 4s ease;
 	-o-transition: all 4s ease;
@@ -209,7 +213,7 @@ footer {
 
 .view-more {
     padding: 10px;
-    background-color: var(--vintage-brown);
+    background-color: var(--vintage-orange);
     width: 100%;
 	position: absolute;
     font-size: 18px;
@@ -229,7 +233,7 @@ footer {
 }
 
 .view-more a {
-	background-color: var(--vintage-brown);
+	background-color: var(--vintage-orange);
     color: var(--vintage-white);
     padding: 10px;
 }
@@ -241,7 +245,7 @@ footer {
 }
 
 .contain-photo:hover img {
-	opacity: 0.1;
+	opacity: 0.3;
 	transform: scale(1.5);
 }
 
@@ -262,7 +266,8 @@ footer {
 	opacity: 1;
 }
 
-/* car details */
+/* -----------  Car Details  ---------------------------------------------------------------------------------------- */
+
 .masthead {
     overflow: hidden;
 }
@@ -290,7 +295,50 @@ footer {
     height: 100%;
 }
 
-/* profile sign up */
+
+/* -----------  User Profile  ---------------------------------------------------------------------------------- */
+.up-button {
+    display: inline-block;
+    background-color: var(--vintage-orange);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    transition: background-color .3s, 
+      opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    text-decoration: none;
+}
+
+.up-button::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: var(--vintage-white);
+}
+
+.up-button:hover {
+    cursor: pointer;
+    background-color: var(--vintage-trans-black);
+}
+
+.up-button:active {
+    background-color: var(--vintage-trans-black);
+}
+
+.up-button.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 .btn {
     border-radius: 50px;
 }
@@ -327,7 +375,7 @@ footer {
 }
 
 .vintage-profile {
-    background-color: var(--vintage-brown);
+    background-color: var(--vintage-green);
     padding: 18px 30px;
     border-radius: 0 15px 0 15px;
 }
@@ -340,10 +388,18 @@ footer {
     font-size: 40px;
 }
 
-.prof-link:hover {
+.profile-bar {
+    margin: 0;
+}
+
+.add-link {
+    border: transparent 1px solid;
+    border-radius: 20px;
+}
+
+.add-link:hover {
     color: var(--vintage-white);
     border: var(--vintage-white) 1px solid;
-    border-radius: 20px;
 }
 
 .modal {
@@ -355,7 +411,33 @@ footer {
     font-family: var(--elite);
 }
 
-/* Responsive */
+
+/* -----------  Pagination  -------------------------------------------------------------------------------------------- */
+.pagination {
+    --bs-pagination-color: var(--vintage-white);
+    --bs-pagination-bg: var(--vintage-trans-black);
+    --bs-pagination-border-color: var(--vintage-trans-black);
+    --bs-pagination-hover-color: var(--vintage-yellow);
+    --bs-pagination-hover-bg: var(--vintage-red);
+    --bs-pagination-hover-border-color:var(--vintage-red);
+    --bs-pagination-focus-color: var(--vintage-yellow);
+    --bs-pagination-focus-bg: var(--vintage-red);
+    --bs-pagination-active-color: var(--vintage-white);
+    --bs-pagination-active-bg: var(--vintage-brown);
+    --bs-pagination-active-border-color: var(--vintage-brown);
+    --bs-pagination-disabled-color: #b6b1b1;
+    --bs-pagination-disabled-bg: transparent;
+    --bs-pagination-disabled-border-color: #b6b1b1;
+    display: flex;
+    padding: 20px 0 50px 0;
+    list-style: none;
+}
+
+
+
+
+
+/* -----------  Responsive --------------------------------------------------------------------------------------- */
 
 @media (max-width: 991px) {
     #navbarResponsive

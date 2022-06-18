@@ -5,8 +5,9 @@
 {% load static %}
 
 {% block content %}
-<!-- Top section of Profile page -->
+<!-- Profile page nav -->
 <section>
+    <a class="up-button"></a>
     <div class="container vintage-profile">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             {% if user.is_authenticated %}
@@ -17,7 +18,7 @@
                 <h3 class="profile-bar mx-5">Hello {{ user.username }}</h3>
             </div>
             <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 mb-md-0">
-                <li><a href="{% url 'add_car' %}" class="nav-link prof-link px-2 t-white mx-2">Add Post</a></li>
+                <li><a href="{% url 'add_car' %}" class="nav-link add-link px-2 t-white mx-2">Add Post</a></li>
                 <button type="button" class="btn t-white mx-2" data-bs-toggle="modal" data-bs-target="#modal-logout">Log
                     Out</button>
             </ul>
@@ -59,55 +60,50 @@
             </div>
         </div>
     </div>
+    <!-- end of profile nav -->
 </section>
+
 <!-- Post section of profile page -->
 <section>
     <div class="container">
         <div class="row justify-content-center">
-
             {% if user.is_authenticated %}
                 {%  for post in post_car  %}
-                    {% if user.id == post.author.id %}
-                        <!-- Show all post if the author is the user -->
-                        <div class="col-lg-4 col-md-12 contain-photo">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="view-more text-white ">
-                                        <a href="{% url 'car_detail' post.id %}"><i class="far fa-eye px-3"></i></a>
-                                        <!-- <button class="btn ms-3"><i class="far fa-eye px-3"></i></button> -->
-                                        <i class="fas fa-heart"></i> {{ post.number_of_likes }}
-                                        <span class="col-1">
-                                            <i class="far fa-comments"></i>
-                                        </span>
-                                    </div>
+                    {% if user.id is post.author.id %}
+                    <!-- Show all post if the author is the user -->
+                    <div class="col-lg-4 col-md-12 contain-photo">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12">
+                                <div class="view-more text-white">
+                                    <a href="{% url 'car_detail' post.id %}" class="hvr-icon-grow"><i class="far fa-eye px-3 hvr-icon"></i></a>
+                                    <!-- <button class="btn ms-3"><i class="far fa-eye px-3"></i></button> -->
+                                    <i class="fas fa-heart"></i> {{ post.number_of_likes }}
+                                    <span class="col-1">
+                                        <i class="far fa-comments"></i>
+                                    </span>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-4 col-md-12">
-                                    <article class="text-left">
-                                        <h2>{{ post.car_model_title }}</h2>
-                                        <h4>({{ post.year_manufactured }})</h4>
-                                    </article>
-                                </div>
-                            </div>
-            
-                            {% if "placeholder" in post.car_image.url %}
-                            <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
-                            {% else %}
-                            <img src="{{ post.car_image.url }}" alt="Car Image">
-                            {% endif %}
                         </div>
-                    {% else %}
-                        <p>
-                            {% if forloop.counter|divisibleby:6 %}
-                            <p class="text-center">No posts yet.</p>
-                            {% endif %}
-                        </p>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12">
+                                <article class="text-left">
+                                    <h2>{{ post.car_model_title }}</h2>
+                                    <h4>({{ post.year_manufactured }})</h4>
+                                </article>
+                            </div>
+                        </div>
+
+                        {% if "placeholder" in post.car_image.url %}
+                        <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
+                        {% else %}
+                        <img src="{{ post.car_image.url }}" alt="Car Image">
+                        {% endif %}
+                    </div>
                     {% endif %}
                 {% endfor %}
             {% else %}
             <div class="row">
-                <div class="col-md-8 offset-md-1 mt-5 pt-3 text-center">
+                <div class="col-md-8 offset-md-2 mt-5 pt-3 text-center">
                     <p>Please log in to view and edit your posts.</p>
 
                 </div>
@@ -115,9 +111,7 @@
             {% endif %}
         </div>
     </div>
-    {% if is_paginated %}
-    {% endif %}
+    
 </section>
-
 
 {% endblock %}
