@@ -16,7 +16,7 @@ class UserProfileView(View):
         page_car = paginator.get_page(page_number)
         context = {
             'user_profile': 'active',
-            'post_car': page_car
+            'post_car': page_car,
         }
         return render(request, 'registration/user_profile.html', context)
 
