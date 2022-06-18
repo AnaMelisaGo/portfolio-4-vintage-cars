@@ -64,15 +64,14 @@ footer {
     color: red;
 }
 
-.text-center {
-    text-align: center;
-}
-
 .uppercase {
     text-transform: uppercase;
 }
 
 /* -----------  Navbar  -------------------------------------------------------------------------------------------------- */
+#mainNave {
+    position: relative;
+}
 
 .navbar-nav .nav-item,
 .navbar .navbar-nav .nav-link {
@@ -158,6 +157,7 @@ footer {
 /* almost all "cars" style is from: https://codepen.io/francisco-kataldo/pen/LBBryV */
 .contain {
 	height: 100%;
+    justify-content: center;
 }
 
 .contain-photo {
@@ -332,6 +332,10 @@ footer {
     border-radius: 0 15px 0 15px;
 }
 
+.vintage-profile nav {
+    justify-content: center;
+}
+
 .profile-icon {
     font-size: 40px;
 }
@@ -354,7 +358,18 @@ footer {
 /* Responsive */
 
 @media (max-width: 991px) {
-    
+    #navbarResponsive
+    {
+        position:absolute;
+        z-index: 10;
+        right: 0;
+        top: 143px;
+        background-color: var(--vintage-drk-brown);
+        width: 200px;
+        padding: 10px 0;
+    }
+
+
     hr {
         border-top: 0;
     }
@@ -369,7 +384,7 @@ footer {
     }
 
     .navbar-nav .nav-item {
-        text-align: end;
+        text-align: center;
     }
     .navbar-brand img {
         width: 150px;
@@ -377,34 +392,28 @@ footer {
 
     .navbar-nav .nav-item,
     .navbar .navbar-nav .nav-link {
-        padding: 0 10px 0;
-        margin-left: 45%;
+        padding: 0 5px 0;
+        /* margin-left: 45%; */
     }
 
 }
 
 /* medium devices */
 @media (max-width: 768px) {
+
     .navbar-brand img {
         width: 150px;
     }
-    .navbar-nav .nav-item,
-    .navbar .navbar-nav .nav-link {
-        
-        margin-left: 30%;
-    }
-
-
 }
 
 /* small devices */
 @media (max-width: 575.98px) {
-    .navbar-brand img {
-        width: 100px;
+    #navbarResponsive {
+        top: 106px;
     }
 
-    .navbar>.container {
-        margin-left: 30%;
+    .navbar-brand img {
+        width: 100px;
     }
 
 }

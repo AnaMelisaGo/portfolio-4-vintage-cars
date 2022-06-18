@@ -1,30 +1,30 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg" id="mainNav">
     <div class="container">
-        <a class="navbar-brand t-white" href="{% url 'home' %}">
+        <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'images/logo.png' %}" alt="Web Logo">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars t-white"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
             <div class="mx-auto mt-3">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 uppercase">
                     <li class="nav-item mx-1">
                         <a class="nav-link {{ home }}" href="{% url 'home' %}">Home</a>
                     </li>
-                    <li class="nav-item mx-auto">
+                    <li class="nav-item mx-1">
                         <a class="nav-link {{ cars }}" href="{% url 'cars' %}">Cars</a>
                     </li>
-                    <li class="nav-item mx-auto">
+                    <li class="nav-item mx-1">
                         <a class="nav-link" href="#">Event</a>
                     </li>
-                    <li class="nav-item mx-auto">
+                    <li class="nav-item mx-1">
                         <a class="nav-link {{ user_profile }}" href="{% url 'user_profile' %}">Profile</a>
                     </li>
-                    <li class="nav-item mx-auto">
+                    <li class="nav-item mx-1">
                         <a class="nav-link" href="#">Contact Us</a>
                     </li>
                 </ul>
