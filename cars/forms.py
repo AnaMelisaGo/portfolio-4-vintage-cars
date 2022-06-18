@@ -1,4 +1,5 @@
 from django import forms
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 from .models import PostCar
 
 
@@ -27,9 +28,7 @@ class AddCarForm(forms.ModelForm):
             'year_manufactured': forms.TextInput(
                 attrs={'class': 'form-control'}
             ),
-            'content': forms.Textarea(
-                attrs={'class': 'form-control'}
-            ),
+            'content': SummernoteWidget(),
             'status': forms.Select(
                 attrs={'class': 'form-control'}
             ),
