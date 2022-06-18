@@ -18,8 +18,8 @@
                 <h3 class="profile-bar mx-5">Hello {{ user.username }}</h3>
             </div>
             <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 mb-md-0">
-                <li><a href="{% url 'add_car' %}" class="nav-link add-link px-2 t-white mx-2">Add Post</a></li>
-                <button type="button" class="btn t-white mx-2" data-bs-toggle="modal" data-bs-target="#modal-logout">Log
+                <li><a href="{% url 'add_car' %}" class="nav-link add-link t-white mx-2">Add Post</a></li>
+                <button type="button" class="btn t-white mx-2 px-4" data-bs-toggle="modal" data-bs-target="#modal-logout">Log
                     Out</button>
             </ul>
             {% else %}
@@ -30,7 +30,7 @@
                 <h3 class="text-uppercase mx-5">Welcome</h3>
             </div>
             <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="{% url 'login' %}" class="nav-link prof-link px-2 t-white mx-2">Log In</a></li>
+                <li><a href="{% url 'login' %}" class="nav-link add-link t-white mx-2">Log In</a></li>
             </ul>
             {% endif %}
 

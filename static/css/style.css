@@ -395,6 +395,7 @@ footer {
 .add-link {
     border: transparent 1px solid;
     border-radius: 20px;
+    padding: 10px 25px;
 }
 
 .add-link:hover {
