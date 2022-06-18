@@ -26,8 +26,8 @@ class CarPageView(View):
         """ return cars page """
         post_car = PostCar.objects.filter(status=1).order_by('-date_created')
         paginator = Paginator(post_car, 6)
-        page = request.GET.get('page')
-        page_car = paginator.get_page(page)
+        page_number = request.GET.get('page')
+        page_car = paginator.get_page(page_number)
         context = {
             'cars': 'active',
             'post_car': page_car,
