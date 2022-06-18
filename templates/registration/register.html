@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="content">
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-md-8 offset-md-2 col-10 offset-1 mb-3 contain-form form-group">
             <div class="row">
                 <div class="col-md-8 offset-md-2 col-10 offset-1 text-center">
@@ -13,17 +13,19 @@
                 </div>
             </div>
             <!-- Sign up form -->
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mb-5">
                 <div class="col-md-8 col-10 offset">
-                    <form method="POST" class="mb-5 mt-5">
+                    <form method="POST" class="mt-5">
                                 {% csrf_token %}
                                 {{ form.as_p }}
-                        <div class="d-flex justify-content-center mb-5 pb-5 pt-3">
+                        <div class="d-flex justify-content-center">
 
-                            <button type="submit" class="btn vintage-btn hvr-ripple-out">Sign Up</button>
+                            <button type="submit" class="btn vintage-btn hvr-ripple-out my-4">Sign Up</button>
                         </div>
-                        
                     </form>
+                    <div class="text-center mb-5">
+                        <small>Already registered? click <a href="{% url 'login' %}" class="reg-link t-white">here</a> to log in.</small>
+                    </div>
                 </div>
             </div>
         </div>
