@@ -81,8 +81,13 @@ footer {
     background-color: transparent;
 }
 
-
 /* -----------  Navbar  -------------------------------------------------------------------------------------------------- */
+.alert {
+    z-index: 100;
+    font-family: var(--elite);
+    position: absolute;
+}
+
 #mainNave {
     position: relative;
 }

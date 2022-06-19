@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.core.paginator import Paginator
@@ -94,6 +95,11 @@ class AddCarPost(View):
                 car_post.car_image = request.FILES.get('car_image')
                 car_post.status = request.POST.get('status')
                 car_post.save()
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    "Your car is posted successfully. Thank you for sharing!"
+                )
                 return redirect('user_profile')
         else:
             form = AddCarForm()

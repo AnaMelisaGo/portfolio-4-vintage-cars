@@ -1,7 +1,13 @@
 let btn = $('.up-button');
 
+/* tooltip */
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+
 /* To show the current year */
 $('#copyright').text(new Date().getFullYear());
+
 
 /* Scroll to top button */
 $(window).scroll(function() {
@@ -17,6 +23,10 @@ btn.on('click', function(e) {
   $('html, body').animate({scrollTop:0}, '300');
 });
 
-/* tooltip */
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+/* To dismiss the alert messages */
+setTimeout(function(){
+  let messages = document.getElementById('msg');
+  let alert = new bootstrap.Alert(messages);
+  alert.close();
+}, 5000);
