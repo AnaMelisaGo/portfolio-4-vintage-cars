@@ -23,13 +23,13 @@ class AddCarForm(forms.ModelForm):
         )
         widgets = {
             'car_model_title': forms.TextInput(
-                attrs={'class': 'form-control'}
+                attrs={'class': 'form-control title-input transparent-bg t-white'}
             ),
             'year_manufactured': forms.TextInput(
-                attrs={'class': 'form-control'}
+                attrs={'class': 'form-control year-input transparent-bg t-white'}
             ),
             'content': SummernoteWidget(),
             'status': forms.Select(
-                attrs={'class': 'form-control'}
+                attrs={'class': 'form-control status-input transparent-bg t-white'}
             ),
         }

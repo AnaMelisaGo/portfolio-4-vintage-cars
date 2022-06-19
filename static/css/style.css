@@ -67,6 +67,16 @@ footer {
     text-transform: uppercase;
 }
 
+/* -----------  Background style  ------------------------------------------------------------------------------------ */
+
+.black-bg {
+    background-color: var(--vintage-trans-black);
+}
+
+.transparent-bg {
+    background-color: transparent;
+}
+
 
 /* -----------  Navbar  -------------------------------------------------------------------------------------------------- */
 #mainNave {
@@ -144,14 +154,6 @@ footer {
 .footer-cont p {
     font-size: 13px;
 }
-
-
-/* -----------  Home page  -------------------------------------------------------------------------------------------- */
-
-.transparent-bg {
-    background-color: var(--vintage-trans-black);
-}
-
 
 /* -----------  Cars  -------------------------------------------------------------------------------------------- */
 /* almost all "cars" style is from: https://codepen.io/francisco-kataldo/pen/LBBryV */
@@ -412,6 +414,21 @@ footer {
     text-transform: capitalize;
     font-family: var(--elite);
 }
+
+
+/* -----------  Form  -------------------------------------------------------------------------------------------- */
+.title-input {
+    width: 720px;
+}
+
+.year-input {
+    width: 100px;
+}
+
+.status-input {
+    width: 200px;
+}
+
 
 
 /* -----------  Pagination  -------------------------------------------------------------------------------------------- */
