@@ -4,7 +4,7 @@ from cloudinary.models import CloudinaryField
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.urls import reverse
 
-STATUS = ((0, 'Default'), (1, 'Published'))
+STATUS = ((0, 'Draft'), (1, 'Published'))
 
 
 class PostCar(models.Model):
@@ -26,7 +26,6 @@ class PostCar(models.Model):
     likes = models.ManyToManyField(
         User, related_name='like_cars', blank=True
     )
-    featured_car = models.BooleanField(default=False)
     can_rent = models.BooleanField(default=False)
 
     class Meta:
