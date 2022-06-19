@@ -60,17 +60,13 @@ footer {
 }
 
 .t-drk-brown {
-    color: var(--vintage-drk-brown)
-}
-
-/* =========delete thist!!!!!!!!!!!!===== */
-.t-red {
-    color: red;
+    color: var(--vintage-drk-brown);
 }
 
 .uppercase {
     text-transform: uppercase;
 }
+
 
 /* -----------  Navbar  -------------------------------------------------------------------------------------------------- */
 #mainNave {
@@ -238,7 +234,16 @@ footer {
     padding: 10px;
 }
 
-/*hovers*/
+.view-more .delete-btn {
+    background-color: transparent;
+    border: none;
+}
+
+.view-more .delete-btn:hover {
+    background-color: transparent;
+    border: none;
+}
+
 .view-more button:hover {
     border: none;
     background-color: var(--vintage-drk-brown);
@@ -403,10 +408,6 @@ footer {
     border: var(--vintage-white) 1px solid;
 }
 
-.modal {
-    color: black;
-}
-
 .profile-bar {
     text-transform: capitalize;
     font-family: var(--elite);
@@ -435,7 +436,23 @@ footer {
 }
 
 
+/* -----------  Modal  -------------------------------------------------------------------------------------------- */
+.modal {
+    color: black;
+}
 
+.modal .modal-content {
+    background-color: var(--vintage-yellow);
+    padding: 5px 20px;
+}
+
+.modal .modal-header {
+    border-bottom: none;
+}
+
+.modal .modal-footer {
+    border-top: none;
+}
 
 
 /* -----------  Responsive --------------------------------------------------------------------------------------- */

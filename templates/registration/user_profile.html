@@ -19,13 +19,13 @@
             </div>
             <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 mb-md-0">
                 <li>
-                    <a href="{% url 'add_car' %}" class="nav-link add-link t-white mx-2">
-                        Add Post <span><i class="fas fa-plus-circle"></i></span>
+                    <a href="{% url 'add_car' %}" class="nav-link add-link t-white mx-2 hvr-icon-pop">
+                        Add Post <span><i class="fas fa-plus-circle hvr-icon"></i></span>
                     </a>
                 </li>
-                <button type="button" class="btn t-white mx-2 px-4" data-bs-toggle="modal"
+                <button type="button" class="btn t-white mx-2 px-4 hvr-icon-wobble-horizontal" data-bs-toggle="modal"
                     data-bs-target="#modal-logout">
-                    LogOut <span><i class="fas fa-sign-out-alt"></i></span>
+                    LogOut <span><i class="fas fa-sign-out-alt hvr-icon"></i></span>
                 </button>
             </ul>
             {% else %}
@@ -37,8 +37,8 @@
             </div>
             <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li>
-                    <a href="{% url 'login' %}" class="nav-link add-link t-white mx-2">
-                        Log In <span><i class="fas fa-sign-in-alt"></i></span>
+                    <a href="{% url 'login' %}" class="nav-link add-link t-white mx-2 hvr-icon-bob">
+                        Log In <span><i class="fas fa-sign-in-alt hvr-icon"></i></span>
                     </a>
                 </li>
             </ul>
@@ -47,27 +47,6 @@
             <!-- <form class="col-10 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
             </form> -->
-        </div>
-    </div>
-    <!-- Modal to confirm log out -->
-    <div class="modal fade" id="modal-logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Log out</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Are your sure you want to log out?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <a href="{% url 'logout' %}">
-                        <button type="button" class="btn btn-danger">Log out</button>
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
     <!-- end of profile nav -->
@@ -85,18 +64,24 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-12">
                         <div class="view-more text-white text-center">
-                                <a href="{% url 'car_detail' post.id %}" class="hvr-icon-grow"
-                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Read more">
-                                    <i class="far fa-eye hvr-icon"></i>
-                                </a>
-                                <a href="#" class="hvr-icon-grow-rotate"
-                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit post">
-                                    <i class="fas fa-pen hvr-icon"></i>
-                                </a>
-                                <a href="#" class="hvr-icon-spin"
+                            <a href="{% url 'car_detail' post.id %}" class="hvr-icon-spin" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" title="Read more">
+                                <i class="far fa-eye hvr-icon"></i>
+                            </a>
+                            <a href="{% url 'edit_car' post.id %}" class="hvr-icon-grow-rotate" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" title="Edit post">
+                                <i class="fas fa-pen hvr-icon"></i>
+                            </a>
+                            <!-- <a href="{% url 'delete_car' post.id %}" class="hvr-icon-drop"
                                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
                                     <i class="fas fa-trash hvr-icon"></i>
-                                </a>
+                                </a> -->
+                            <button type="button" class="t-white hvr-icon-drop delete-btn" data-bs-toggle="modal"
+                                data-bs-target="#modal-delete">
+                                <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
+                                    <i class="fas fa-trash hvr-icon"></i>
+                                </span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -114,19 +99,27 @@
                 {% else %}
                 <img src="{{ post.car_image.url }}" alt="Car Image">
                 {% endif %}
-                <!--                         
-                        <div class="row justify-content my-3">
-                            <div class="col-4 post-photo">
-                                <img src="{% static 'images/vc-blue-sedan.jpg' %}" alt="Car image">
-                            </div>
-                            <div class="col-6">
-                                <p>col-6</p>
-                            </div>
-                            <div class="col-2">
-                                <p>col-2</p>
-                            </div>
+            </div>
+            <!-- Modal to confirm post deletion -->
+            <div class="modal fade" id="modal-delete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Delete Post</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                         -->
+                        <div class="modal-body">
+                            You clicked delete button. Are you sure you want to delete this post?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <a href="{% url 'delete_car' post.id %}">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             {% endif %}
             {% endfor %}
@@ -143,5 +136,25 @@
     </div>
 
 </section>
-
+<!-- Modal to confirm log out -->
+<div class="modal fade" id="modal-logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Log out</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Are your sure you want to log out?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <a href="{% url 'logout' %}">
+                <button type="button" class="btn btn-danger">Log out</button>
+            </a>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}

@@ -37,8 +37,8 @@ class CarPageView(View):
 
 class CarDetail(View):
     """ 
-    To view all post in cars page
-    --- more------------------------------------------------------------
+    To view the post's page. It displays the photo,
+    content, author and date created
     """
     def get(self, request, post_id, *args, **kwargs):
         """ docstring """
@@ -62,7 +62,9 @@ class CarDetail(View):
 
 
 class AddCarPost(View):
-    """ To add a post about a car """
+    """
+    To add a post 
+    """
 
     def get(self, request, *args, **kwargs):
         """
@@ -99,3 +101,60 @@ class AddCarPost(View):
             'form': form
         }
         return render(request, 'cars/add_car.html', context)
+
+
+class EditCarPost(View):
+    """
+    Edit post
+    """
+    def get(self, request, post_id, *args, **kwargs):
+        """
+        To view an specific post
+        """
+        queryset = PostCar.objects.filter(status=1)
+        post_car = get_object_or_404(queryset, pk=post_id)
+        edit_car = AddCarForm(request.POST or None, instance=post_car)
+        context = {
+            'form': edit_car,
+            'cars': 'active'
+        }
+        return render(request, 'cars/edit_car.html', context)
+
+    def post(self, request, post_id, *args, **kwargs):
+        """
+        to post
+        """
+        queryset = PostCar.objects.filter(status=1)
+        post_car = get_object_or_404(queryset, pk=post_id)
+        edit_car = AddCarForm(request.POST or None, request.FILES or None, instance=post_car)
+        if edit_car.is_valid():
+            edit_car.save()
+            return redirect('car_detail', str(post_id))
+        context = {
+            'form': edit_car,
+            'cars': 'active'
+        }
+        return render(request, 'cars/edit_car.html', context)
+
+
+class DeleteCarPost(View):
+    """
+    Delete view
+    """
+    def get(self, request, post_id, *args, **kwargs):
+        """
+        Get the post
+        """
+        queryset = PostCar.objects.filter(status=1)
+        post_car = get_object_or_404(queryset, pk=post_id)
+        post_car.delete()
+        return redirect('user_profile')
+
+    # def post(self, request, post_id, *args, **kwargs):
+    #         """
+    #         Get the post
+    #         """
+    #         queryset = PostCar.objects.filter(status=1)
+    #         post_car = get_object_or_404(queryset, pk=post_id)
+    #         post_car.delete()
+    #         return redirect('user_profile')
