@@ -1,8 +1,9 @@
 from django.contrib import messages
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.http import HttpResponseRedirect
 from django.views import View
 from django.core.paginator import Paginator
-from .models import PostCar
+from .models import PostCar, Comment
 from .forms import AddCarForm, CommentForm
 
 from cloudinary.forms import cl_init_js_callbacks
@@ -62,10 +63,49 @@ class CarDetail(View):
             }
         )
 
+    def post(self, request, post_id, *args, **kwargs):
+        """
+        To handle comments on post
+        """
+        queryset = PostCar.objects.filter(status=1)
+        post_car = get_object_or_404(queryset, pk=post_id)
+        comments = post_car.comments.filter(
+            post_id=post_id).order_by('date_created')
+        liked = False
+        if post_car.likes.filter(id=self.request.user.id).exists():
+            liked = True
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment_post = Comment()
+            comment_post.name = request.user.username
+            comment_post.comment_body = request.POST.get('comment_body')
+            comment_post.post = post_car
+            comment_post.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                "Your comment is posted."
+            )
+            return HttpResponseRedirect(reverse('car_detail', args=[post_id]))
+        else:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                "EEE"
+            )
+            comment_form = CommentForm()
+        context = {
+            'post_car': post_car,
+            'cars': 'active',
+            'liked': liked,
+            'comment_form': CommentForm(),
+        }
+        return render(request, "car_detail.html", context)
+
 
 class AddCarPost(View):
     """
-    To add a post 
+    To create a post
     """
 
     def get(self, request, *args, **kwargs):
@@ -81,7 +121,7 @@ class AddCarPost(View):
 
     def post(self, request, *args, **kwargs):
         """ 
-        To post
+        To post a car 
         """
         if request.method == "POST":
             form = AddCarForm(request.POST, request.FILES)
@@ -89,7 +129,9 @@ class AddCarPost(View):
             if form.is_valid():
                 car_post = PostCar()
                 car_post.car_model_title = request.POST.get('car_model_title')
-                car_post.year_manufactured = request.POST.get('year_manufactured')
+                car_post.year_manufactured = request.POST.get(
+                    'year_manufactured'
+                )
                 car_post.author = request.user
                 car_post.content = request.POST.get('content')
                 car_post.car_image = request.FILES.get('car_image')
@@ -133,7 +175,9 @@ class EditCarPost(View):
         """
         queryset = PostCar.objects.filter(status=1)
         post_car = get_object_or_404(queryset, pk=post_id)
-        edit_car = AddCarForm(request.POST or None, request.FILES or None, instance=post_car)
+        edit_car = AddCarForm(
+            request.POST or None, request.FILES or None, instance=post_car
+        )
         if edit_car.is_valid():
             post_car.date_created = post_car.date_updated
             edit_car.save()
