@@ -1,6 +1,6 @@
 from django import forms
-from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
-from .models import PostCar
+from django_summernote.widgets import SummernoteWidget
+from .models import PostCar, Comment
 
 
 class AddCarForm(forms.ModelForm):
@@ -11,7 +11,9 @@ class AddCarForm(forms.ModelForm):
 
     class Meta:
         """
-        Create fields and select each for styling
+        Create fields to add post and select each field
+        for styling. Content field includes summernotewidget
+        for easy editing.
         """
         model = PostCar
         fields = (
@@ -23,13 +25,39 @@ class AddCarForm(forms.ModelForm):
         )
         widgets = {
             'car_model_title': forms.TextInput(
-                attrs={'class': 'form-control title-input transparent-bg t-white'}
+                attrs={
+                    'class': 'form-control title-input transparent-bg t-white'
+                }
             ),
             'year_manufactured': forms.TextInput(
-                attrs={'class': 'form-control year-input transparent-bg t-white'}
+                attrs={
+                    'class': 'form-control year-input transparent-bg t-white'
+                }
             ),
             'content': SummernoteWidget(),
             'status': forms.Select(
-                attrs={'class': 'form-control status-input transparent-bg t-white'}
+                attrs={
+                    'class': 'form-control status-input transparent-bg t-white'
+                }
+            ),
+        }
+
+
+class CommentForm(forms.ModelForm):
+    """
+    Create form for comments
+    """
+    class Meta:
+        """
+        Create fields to post comments
+        """
+        model = Comment
+        fields = ('comment_body',)
+        widgets = {
+            'comment_body': forms.Textarea(
+                attrs={
+                    'class': 'form-control',
+                    'rows': 2,
+                }
             ),
         }

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.core.paginator import Paginator
 from .models import PostCar
-from .forms import AddCarForm
+from .forms import AddCarForm, CommentForm
 
 from cloudinary.forms import cl_init_js_callbacks
 
@@ -55,6 +55,7 @@ class CarDetail(View):
             {
                 'cars': 'active',
                 'post_car': post_car,
+                'comment_form': CommentForm(),
                 'comments': comments,
                 'liked': liked,
             }

@@ -63,6 +63,10 @@ footer {
     color: var(--vintage-drk-brown);
 }
 
+.t-red {
+    color: var(--vintage-red);
+}
+
 .uppercase {
     text-transform: uppercase;
 }
@@ -281,10 +285,10 @@ footer {
 
 .main-text {
     position: absolute;
-    top: 15px;
+    bottom: 0;
     z-index: 1;
     background-color: var(--vintage-trans-black);
-    max-width: 100%;
+    width: 100%;
     padding-left: 50px;
 }
 
@@ -294,12 +298,35 @@ footer {
 	overflow: hidden;
 	max-width: 1500px;
 	margin: 15px;
-    position: relative;
+
 }
 
 .image-container img {
     width: 100%;
     height: 100%;
+}
+
+.comment-line {
+    border-bottom: var(--vintage-yellow) 2px solid;
+
+}
+
+.img-width {
+    width: 100%;
+}
+
+.heart-icon, .comment-icon {
+    font-size: 30px;
+}
+
+.vintage-green-btn {
+    color: var(--vintage-white);
+    background-color: #5a9786;
+    width: 200px;
+}
+
+.vintage-green-btn:hover {
+    background-color: var(--vintage-green);
 }
 
 
@@ -531,6 +558,20 @@ footer {
 
     .navbar-brand img {
         width: 100px;
+    }
+
+    .comment-line {
+        border-bottom: none;
+    
+    }
+    
+    .img-width {
+        width: 300px;
+    }
+
+    .heart-icon, .comment-icon {
+        font-size: 25px;
+        width: 90px;
     }
 
 }
