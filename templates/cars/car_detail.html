@@ -62,10 +62,10 @@
         <div class="col-4 comment-line"></div>
     </div>
     <div class="row mb-5">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-mb-10 offset-md-2">
             <div class="row">
                 <!-- Comment form section -->
-                <div class="col-8 offset-2 mt-5">
+                <div class="col-sm mt-5">
                     {% if user.is_authenticated %}
                     <h3>Write a comment</h3>
                     <p>From: <span class="text-capitalize">{{ user.username }}</span></p>
@@ -77,7 +77,7 @@
                     {% endif %}
                 </div>
 
-                <div class="col-md-8 offset-md-2">
+                <div class="col-sm">
                     <!-- comments -->
                     <h3>Comments</h3>
                     {% for comment in comments %}
