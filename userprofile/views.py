@@ -26,6 +26,7 @@ class UserRegisterView(generic.CreateView):
     """
     form_class = UserCreationForm
     template_name = 'registration/register.html'
+    success_message = "%(name)s was created successfully"
     success_url = reverse_lazy('login')
 
     def get_context_data(self, **kwargs):
@@ -37,12 +38,20 @@ class UserRegisterView(generic.CreateView):
 
 def logout_message(sender, user, request, **kwargs):
     """ show message """
-    messages.info(request, 'You successfully logged out. See you soon again!')
+    messages.add_message(
+        request,
+        messages.WARNING,
+        'You successfully logged out. See you soon again!'
+    )
 
 
 def login_message(sender, user, request, **kwargs):
     """ show message """
-    messages.success(request, 'Welcome! You are logged in to your account.')
+    messages.add_message(
+        request,
+        messages.SUCCESS,
+        'Welcome! You are logged in to your account.'
+    )
 
 
 user_logged_out.connect(logout_message)
