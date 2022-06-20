@@ -69,11 +69,6 @@ class CarDetail(View):
         """
         queryset = PostCar.objects.filter(status=1)
         post_car = get_object_or_404(queryset, pk=post_id)
-        comments = post_car.comments.filter(
-            post_id=post_id).order_by('date_created')
-        liked = False
-        if post_car.likes.filter(id=self.request.user.id).exists():
-            liked = True
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
             comment_post = Comment()
@@ -88,19 +83,30 @@ class CarDetail(View):
             )
             return HttpResponseRedirect(reverse('car_detail', args=[post_id]))
         else:
-            messages.add_message(
-                request,
-                messages.ERROR,
-                "EEE"
-            )
             comment_form = CommentForm()
         context = {
             'post_car': post_car,
             'cars': 'active',
-            'liked': liked,
             'comment_form': CommentForm(),
         }
         return render(request, "car_detail.html", context)
+
+
+class LikeCar(View):
+    """
+    Class to get likes from user
+    """
+    def post(self, request, post_id):
+        """
+        A funtion to toggle like and unlike when user click on the 
+        like button
+        """
+        post_car = get_object_or_404(PostCar, pk=post_id)
+        if post_car.likes.filter(id=request.user.id).exists():
+            post_car.likes.remove(request.user)
+        else:
+            post_car.likes.add(request.user)
+        return HttpResponseRedirect(reverse('car_detail', args=[post_id]))
 
 
 class AddCarPost(View):

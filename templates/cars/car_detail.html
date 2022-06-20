@@ -35,8 +35,27 @@
                 <p>{{ post_car.content | safe }}</p>
                 <div class="row ms-3">
                     <!-- Like icon -->
-                    <div class="col-2 hvr-icon-pulse-grow heart-icon t-red">
-                        <i class="far fa-heart hvr-icon"></i>
+                    <div class="col-2">
+                        {% if user.is_authenticated %}
+                        <form class="d-inline like-form" action="{% url 'like_car' post_car.id %}" method="POST">
+                            {% csrf_token %}
+                            {% if liked %}
+                            <button type="submit" name="car_post" value="{{ post_car.car_model_tittle }}"
+                                class="hvr-icon-pulse-grow heart-icon t-red">
+                                <i class="fas fa-heart hvr-icon"></i>
+                            </button>
+                            {% else %}
+                            <button type="submit" name="car_post" value="{{ post_car.car_model_tittle }}"
+                                class="hvr-icon-pulse-grow heart-icon t-red">
+                                <i class="far fa-heart hvr-icon"></i>
+                            </button>
+                            {% endif %}
+                        </form>
+                        {% else %}
+                        <div class="heart-icon t-white">
+                            <i class="far fa-heart hvr-icon"></i>
+                        </div>
+                        {% endif %}
                         <span class="t-white fs-5">{{ post_car.number_of_likes }}</span>
                     </div>
                     <!-- comments icon -->
@@ -47,7 +66,7 @@
                         {% endwith %}
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -58,34 +77,36 @@
 <div class="contain-fluid justify-content-center my-5">
     <div class="row">
         <div class="col-4 comment-line"></div>
-        <div class="col-4 d-flex justify-content-center align-top"><img src="{% static 'images/comments.png' %}" class="img-width" alt="comments"></div>
+        <div class="col-4 d-flex justify-content-center align-top"><img src="{% static 'images/comments.png' %}"
+                class="img-width" alt="comments"></div>
         <div class="col-4 comment-line"></div>
     </div>
     <div class="row mb-5">
-        <div class="col-mb-10 offset-md-2">
+        <div class="col-md-8 offset-md-2 col-10 offset-1">
             <div class="row">
                 <!-- Comment form section -->
-                <div class="col-sm mt-5">
+                <div class="col mt-5">
                     {% if user.is_authenticated %}
                     <h3>Write a comment</h3>
                     <p>From: <span class="text-capitalize">{{ user.username }}</span></p>
                     <form method="POST" class="my-4">
                         {% csrf_token %}
                         {{ comment_form }}
-                        <button type="submit" class="btn vintage-green-btn mt-4">Post comment</button>
+                        <button type="submit" class="btn vintage-green-btn mt-4">Send <i class="far fa-paper-plane"></i></button>
                     </form>
                     {% endif %}
                 </div>
-
-                <div class="col-sm">
+            </div>
+            <div class="row">
+                <div class="col">
                     <!-- comments -->
                     <h3>Comments</h3>
                     {% for comment in comments %}
-                    <p>Commented by: <strong class="text-capitalize">{{ comment.name }}</strong> <small class="text-secondary">{{ comment.date_created }}</small></p>
+                    <p>Commented by: <strong class="text-capitalize">{{ comment.name }}</strong> <small
+                            class="text-secondary">{{ comment.date_created }}</small></p>
                     <p>{{ comment.comment_body }}</p>
                     {% endfor %}
                 </div>
-                
             </div>
         </div>
     </div>
