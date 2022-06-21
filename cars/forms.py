@@ -36,7 +36,7 @@ class AddCarForm(forms.ModelForm):
             ),
             'content': SummernoteWidget(
                 attrs={'summernote': {
-                    'max-width': '100px',
+                    'max-width': '100%',
                     'data-device': 'iphone',
                 }}
             ),
