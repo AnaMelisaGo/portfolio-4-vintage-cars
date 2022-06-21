@@ -44,8 +44,7 @@ class CarDetail(View):
     """
     def get(self, request, post_id, *args, **kwargs):
         """ docstring """
-        queryset = PostCar.objects.filter(status=1)
-        post_car = get_object_or_404(queryset, pk=post_id)
+        post_car = get_object_or_404(PostCar, pk=post_id)
         comments = post_car.comments.filter(
             post_id=post_id).order_by('date_created')
         liked = False
@@ -85,9 +84,7 @@ class CarDetail(View):
         else:
             comment_form = CommentForm()
         context = {
-            'post_car': post_car,
             'cars': 'active',
-            'comment_form': CommentForm(),
         }
         return render(request, "car_detail.html", context)
 
@@ -116,7 +113,8 @@ class AddCarPost(View):
 
     def get(self, request, *args, **kwargs):
         """
-        To view AddCarForm in add_car.html
+        To view AddCarForm in add_car.html, and pass context to template
+        to be used to create a post
         """
         form = AddCarForm(request.POST)
         context = {
@@ -127,7 +125,9 @@ class AddCarPost(View):
 
     def post(self, request, *args, **kwargs):
         """ 
-        To post a car 
+        If the form is valid, this function will get the value of each
+        field. Saves the form to post it and redirects user to user profile
+        page.
         """
         if request.method == "POST":
             form = AddCarForm(request.POST, request.FILES)
@@ -160,15 +160,14 @@ class AddCarPost(View):
 
 class EditCarPost(View):
     """
-    Edit post
+    Edit post view
     """
     def get(self, request, post_id, *args, **kwargs):
         """
-        To view an specific post
+        To view an specific post that the user wants to edit
         """
-        queryset = PostCar.objects.filter(status=1)
-        post_car = get_object_or_404(queryset, pk=post_id)
-        edit_car = AddCarForm(request.POST or None, instance=post_car)
+        post_car = get_object_or_404(PostCar, pk=post_id)
+        edit_car = AddCarForm(request.POST or None, request.FILES or None, instance=post_car)
         context = {
             'form': edit_car,
             'cars': 'active',
@@ -177,34 +176,36 @@ class EditCarPost(View):
 
     def post(self, request, post_id, *args, **kwargs):
         """
-        to post
+        Takes the content of the post and put them on each field. Request.FILES
+        or None is used to get media files to be posted. Change the value of
+        date_created to date_updated when performed any modification
         """
-        queryset = PostCar.objects.filter(status=1)
-        post_car = get_object_or_404(queryset, pk=post_id)
+        post_car = get_object_or_404(PostCar, pk=post_id)
         edit_car = AddCarForm(
             request.POST or None, request.FILES or None, instance=post_car
         )
         if edit_car.is_valid():
-            post_car.date_created = post_car.date_updated
             edit_car.save()
+            post_car.date_created = post_car.date_updated
             return redirect('car_detail', str(post_id))
         context = {
             'form': edit_car,
             'cars': 'active',
-            'post_car.date_created': post_car.date_updated,
+            
+            # 'post_car.date_created': post_car.date_updated,
         }
         return render(request, 'cars/edit_car.html', context)
 
 
 class DeleteCarPost(View):
     """
-    Delete view
+    Class to delete a post
     """
     def get(self, request, post_id, *args, **kwargs):
         """
-        Get the post
+        A function that deletes the desired object and redirects
+        user to user profile page
         """
-        queryset = PostCar.objects.filter(status=1)
-        post_car = get_object_or_404(queryset, pk=post_id)
+        post_car = get_object_or_404(PostCar, pk=post_id)
         post_car.delete()
         return redirect('user_profile')

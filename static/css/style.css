@@ -392,6 +392,7 @@ footer {
     color: var(--vintage-white);
     background-color: var(--vintage-drk-brown);
     width: 200px;
+    padding: 15px 5px;
 }
 
 .vintage-btn:hover {
@@ -454,9 +455,15 @@ footer {
 }
 
 
+
 /* -----------  Form  -------------------------------------------------------------------------------------------- */
+.add-form-container {
+    background-color: var(--vintage-trans-black);
+}
+
+
 .title-input {
-    width: 720px;
+    max-width: 50rem;
 }
 
 .year-input {
