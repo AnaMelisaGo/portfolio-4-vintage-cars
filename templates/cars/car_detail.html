@@ -35,24 +35,24 @@
                 <p>{{ post_car.content | safe }}</p>
                 <div class="row ms-3">
                     <!-- Like icon -->
-                    <div class="col-2">
+                    <div class="col-2 heart-icon">
                         {% if user.is_authenticated %}
                         <form class="d-inline like-form" action="{% url 'like_car' post_car.id %}" method="POST">
                             {% csrf_token %}
                             {% if liked %}
                             <button type="submit" name="car_post" value="{{ post_car.car_model_tittle }}"
-                                class="hvr-icon-pulse-grow heart-icon t-red">
+                                class="hvr-icon-pulse-grow t-red">
                                 <i class="fas fa-heart hvr-icon"></i>
                             </button>
                             {% else %}
                             <button type="submit" name="car_post" value="{{ post_car.car_model_tittle }}"
-                                class="hvr-icon-pulse-grow heart-icon t-red">
+                                class="hvr-icon-pulse-grow t-red">
                                 <i class="far fa-heart hvr-icon"></i>
                             </button>
                             {% endif %}
                         </form>
                         {% else %}
-                        <div class="heart-icon t-white">
+                        <div class="t-white">
                             <i class="far fa-heart hvr-icon"></i>
                         </div>
                         {% endif %}

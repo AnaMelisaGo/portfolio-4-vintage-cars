@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.views import generic, View
 from django.contrib.auth.forms import UserCreationForm
-from django.core.paginator import Paginator
 from django.contrib.auth.signals import user_logged_out, user_logged_in
 from django.contrib import messages
 from django.urls import reverse_lazy
 from cars.models import PostCar
+from .filters import PostCarFilter
 
 
 class UserProfileView(View):
@@ -13,9 +13,14 @@ class UserProfileView(View):
     def get(self, request):
         """ render user profile """
         post_car = PostCar.objects.order_by('-date_created')
+
+        car_filter = PostCarFilter(request.GET, queryset=post_car)
+        post_car = car_filter.qs
+
         context = {
             'user_profile': 'active',
             'post_car': post_car,
+            'car_filter': car_filter,
         }
         return render(request, 'registration/user_profile.html', context)
 
