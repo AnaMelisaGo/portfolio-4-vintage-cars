@@ -33,7 +33,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = development
 
 ALLOWED_HOSTS = ['portfolio-4-vintage-cars.herokuapp.com', 'localhost']
 
@@ -161,8 +161,8 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 cloudinary.config( 
-  cloud_name = os.environ.get('cloud_name'), 
-  api_key = os.environ.get('api_key'), 
+  cloud_name = os.environ.get('cloud_name'),
+  api_key = os.environ.get('api_key'),
   api_secret = os.environ.get('api_secret'),
   secure = True
 )

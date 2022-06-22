@@ -49,122 +49,113 @@
 </section>
 
 <!-- Post section of profile page -->
-<section>
-    <div class="container">
-        <div class="row justify-content-center">
-            {% if user.is_authenticated %}
-            <br>
-            <div class="row my-4 text-center">
-                <div class="col">
-                    <div class="card card-body">
-                        <form method="GET">
-                            {{ car_filter.form }}
-                            <div class="my-3">
-                                <button class="btn btn-secondary" type="submit">Search</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+<section class="container justify-content-center content-profile">
+    {% if user.is_authenticated %}
+    <!-- Filter bar -->
+    <div class="row mt-1º text-center">
+        <div class="col">
+            <div class="filter-body">
+                <form method="GET">
+                    {{ car_filter.form }}
+                    <button class="btn btn-secondary my-1" type="submit">Search</button>
+                </form>
             </div>
-            <br>
-            {%  for post in post_car  %}
-            {% if user.id is post.author.id %}
-            <!-- Show all post if the author is the user -->
-            <div class="col-lg-4 col-md-12 contain-photo">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="view-more text-white text-center">
-                            <a href="{% url 'car_detail' post.id %}" class="hvr-icon-spin" data-bs-toggle="tooltip"
-                                data-bs-placement="bottom" title="Read more">
-                                <i class="far fa-eye hvr-icon"></i>
-                            </a>
-                            <a href="{% url 'edit_car' post.id %}" class="hvr-icon-grow-rotate" data-bs-toggle="tooltip"
-                                data-bs-placement="bottom" title="Edit post">
-                                <i class="fas fa-pen hvr-icon"></i>
-                            </a>
-                            <!-- <a href="{% url 'delete_car' post.id %}" class="hvr-icon-drop"
-                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                    <i class="fas fa-trash hvr-icon"></i>
-                                </a> -->
-                            <button type="button" class="t-white hvr-icon-drop delete-btn" data-bs-toggle="modal"
-                                data-bs-target="#modal-delete">
-                                <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                    <i class="fas fa-trash hvr-icon"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-12">
-                        <article class="text-left">
-                            <h2>{{ post.car_model_title }}</h2>
-                            <h4>({{ post.year_manufactured }})</h4>
-                        </article>
-                    </div>
-                </div>
-
-                {% if "placeholder" in post.car_image.url %}
-                <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
-                {% else %}
-                <img src="{{ post.car_image.url }}" alt="Car Image">
-                {% endif %}
-            </div>
-            <!-- Modal to confirm post deletion -->
-            <div class="modal fade" id="modal-delete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Delete Post</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            You clicked delete button. Are you sure you want to delete this post?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <a href="{% url 'delete_car' post.id %}">
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-            {% else %}
-            <div class="row">
-                <div class="col-md-8 offset-md-2 mt-5 pt-3 text-center">
-                    <p>Please log in to view and edit your posts.</p>
-
-                </div>
-            </div>
-            {% endif %}
         </div>
     </div>
+    <br>
+    <div class="row justify-content-center">
+        <!-- Show all post if the author is the user -->
+        {%  for post in post_car  %}
+        {% if user.id is post.author.id %}
+        <div class="col-lg-4 col-md-12 contain-photo g-0">
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <div class="view-more text-white text-center">
+                        <a href="{% url 'car_detail' post.id %}" class="hvr-icon-spin" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="Read more">
+                            <i class="far fa-eye hvr-icon"></i>
+                        </a>
+                        <a href="{% url 'edit_car' post.id %}" class="hvr-icon-grow-rotate" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="Edit post">
+                            <i class="fas fa-pen hvr-icon"></i>
+                        </a>
+                        <button type="button" class="t-white hvr-icon-drop delete-btn" data-bs-toggle="modal"
+                            data-bs-target="#modal-delete">
+                            <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
+                                <i class="fas fa-trash hvr-icon"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <article class="text-left">
+                        <h2>{{ post.car_model_title }}</h2>
+                        <h4>({{ post.year_manufactured }})</h4>
+                    </article>
+                </div>
+            </div>
+            {% if "placeholder" in post.car_image.url %}
+            <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
+            {% else %}
+            <img src="{{ post.car_image.url }}" alt="Car Image">
+            {% endif %}
+        </div>
+        <!-- Modal to confirm post deletion -->
+        <div class="modal fade" id="modal-delete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Delete Post</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        You clicked delete button. Are you sure you want to delete this post?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <a href="{% url 'delete_car' post.id %}">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+        {% else %}
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-5 pt-3 text-center">
+            <p>Please log in to view and edit your posts.</p>
+
+        </div>
+    </div>
+    {% endif %}
     </div>
 
 </section>
 <!-- Modal to confirm log out -->
 <div class="modal fade" id="modal-logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Log out</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            Are your sure you want to log out?
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <a href="{% url 'logout' %}">
-                <button type="button" class="btn btn-danger">Log out</button>
-            </a>
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Log out</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are your sure you want to log out?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <a href="{% url 'logout' %}">
+                    <button type="button" class="btn btn-danger">Log out</button>
+                </a>
+            </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}
