@@ -531,6 +531,21 @@ iframe[style] {
 
 
 /* -----------  Responsive --------------------------------------------------------------------------------------- */
+.contact-container {
+    background-color: black;
+}
+
+.contact-container p {
+    font-size: 10px;
+}
+
+.contact-image img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* -----------  Responsive --------------------------------------------------------------------------------------- */
 
 @media (max-width: 991px) {
     #navbarResponsive
