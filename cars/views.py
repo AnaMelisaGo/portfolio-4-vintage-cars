@@ -3,21 +3,9 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.views import View
 from django.core.paginator import Paginator
+from cloudinary.forms import cl_init_js_callbacks
 from .models import PostCar, Comment
 from .forms import AddCarForm, CommentForm
-
-from cloudinary.forms import cl_init_js_callbacks
-
-
-class HomePageView(View):
-    """ view home page """
-
-    def get(self, request, *args, **kwargs):
-        """ return homepage """
-        context = {
-            'home': 'active'
-        }
-        return render(request, 'home/index.html', context)
 
 
 class CarPageView(View):
@@ -38,7 +26,7 @@ class CarPageView(View):
 
 
 class CarDetail(View):
-    """ 
+    """
     To view the post's page. It displays the photo,
     content, author and date created
     """
@@ -95,7 +83,7 @@ class LikeCar(View):
     """
     def post(self, request, post_id):
         """
-        A funtion to toggle like and unlike when user click on the 
+        A funtion to toggle like and unlike when user click on the
         like button
         """
         post_car = get_object_or_404(PostCar, pk=post_id)
@@ -124,14 +112,13 @@ class AddCarPost(View):
         return render(request, 'cars/add_car.html', context)
 
     def post(self, request, *args, **kwargs):
-        """ 
+        """
         If the form is valid, this function will get the value of each
         field. Saves the form to post it and redirects user to user profile
         page.
         """
         if request.method == "POST":
             form = AddCarForm(request.POST, request.FILES)
-            
             if form.is_valid():
                 car_post = PostCar()
                 car_post.car_model_title = request.POST.get('car_model_title')
@@ -167,7 +154,9 @@ class EditCarPost(View):
         To view an specific post that the user wants to edit
         """
         post_car = get_object_or_404(PostCar, pk=post_id)
-        edit_car = AddCarForm(request.POST or None, request.FILES or None, instance=post_car)
+        edit_car = AddCarForm(
+            request.POST or None, request.FILES or None, instance=post_car
+        )
         context = {
             'form': edit_car,
             'cars': 'active',
@@ -191,8 +180,6 @@ class EditCarPost(View):
         context = {
             'form': edit_car,
             'cars': 'active',
-            
-            # 'post_car.date_created': post_car.date_updated,
         }
         return render(request, 'cars/edit_car.html', context)
 
