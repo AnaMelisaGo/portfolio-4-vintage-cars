@@ -1,5 +1,5 @@
 import django_filters
-from django_filters import CharFilter, NumberFilter
+from django_filters import CharFilter
 from cars.models import PostCar
 
 
