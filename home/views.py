@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render
 from django.views import View
 
@@ -25,6 +26,7 @@ class ContactPage(View):
         To render the contact page and show contents
         """
         context = {
-            'contact': 'active'
+            'contact': 'active',
+            'USER_ID': os.environ.get('USER_ID'),
         }
         return render(request, 'home/contact.html', context)

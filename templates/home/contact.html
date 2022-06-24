@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
+
+{% block title %}Contact us{% endblock %}
+
 {% load static %}
 
 {% block content %}
 
-<div class="row g-0 position-relative contact-container mb-2">
-    <div class="col-md-6 contact-image">
-        <img src="{% static 'images/car-lights.gif' %}" alt="">
+<div class="row g-0 contact-container mb-2">
+    <div class="col-md-6">
+        <img id="loader" src="{% static 'images/car-lights-flashed.gif' %}" alt="Car">
+        <img id="contact-img" src="{% static 'images/car-lights.gif' %}" alt="Car lights">
     </div>
-    <div class="col-md-6 position-absolute top-0 start-50">
+    <div class="col-md-6">
         <div class="row">
             <div class="col mt-5 mb-2">
-                <h2>Contact Us</h2>
+                <h2 id="head">Contact Us</h2>
             </div>
         </div>
         <div class="row">
@@ -19,17 +23,57 @@
                     you can reach out to us faster and easier. <br><br>For any enquiry please fill up this form and we
                     will get in touch with you very soon. <br>To rent a car, press <a href="#">here</a>!</p>
             </div>
-            <form action="">
-                <input class="form-control" type="text" name="name" placeholder="Complete name">
-                <input class="form-control" type="email" name="email" placeholder="Email">
-                <textarea class="form-control mb-1" name="message" id="" cols="30" rows="5" placeholder="Your message here"></textarea>
-                <input type="submit" name="submit" id="submit_contact" class="btn btn-secondary" value="Send message">
+            <form id="contact-form">
+                <!--  onsubmit="return sendMail(this) -->
+                {% csrf_token %}
+                <input type="hidden" value="{{ USER_ID }}" id="user_id">
+                <input class="form-control" id="name" type="text" name="user_name" placeholder="Complete name">
+                <input class="form-control" id="email" type="email" name="user_email" placeholder="Email">
+                <textarea class="form-control mb-1" id="message" name="message" id="" cols="30" rows="5" placeholder="Your message here"></textarea>
+                <!-- <input type="submit" name="submit" id="submit_contact" class="btn btn-secondary" value="Send message"> -->
+                <button type="submit" class="btn btn-secondary px-4 my-2" id="submit" enctype="multipart/form-data">Submit</button>
             </form>
         </div>
     </div>
 </div>
 <div class="row">
 </div>
+{% endblock %}
 
-
+{% block script %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function(){
+        emailjs.init('Q3w1dwW3I9-ShlNjI');
+        })();
+</script>
+<script type="text/javascript">
+    let loader = document.querySelector("#loader");
+    let contact_img = document.querySelector("#contact-img");
+    function show_hide() {
+        setTimeout(() => {
+            loader.style.display = "inline";
+            contact_img.style.display = "none";
+        }, 2500);
+        setTimeout(() => {
+                loader.style.display = "none";
+                contact_img.style.display = "inline";
+            }, 8500);
+    }
+    window.onload = function() {
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            show_hide();
+            // these IDs from the previous steps
+            emailjs.sendForm('vintage-cars', 'vintage-cars-temp', this)
+                .then(function() {
+                    console.log('SUCCESS!');
+                    let contactform = document.getElementById('contact-form');
+                    contactform.reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        });
+    }
+</script>
 {% endblock %}
