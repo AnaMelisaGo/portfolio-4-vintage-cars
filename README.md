@@ -26,15 +26,22 @@
  
 ## Welcome to Vintage Cars!
 
-![show final site image here](assets/docs/image.png)
+![show final site image here](static/images/screenshots/sshot-logo-dark.png)
  
 ***
  
 ## What does it do and what does it need to fulfill?
-lorem
- 
-![show favicon site image here](assets/docs/image.png)
- 
+
+Ever since automotives were invented, cars were evolving very fast and more environmentally friendly. But there are old cars that, though time already passes, are still as good as the modern ones. It’s good to point out that the world is accumulating a lot of garbage that, instead of scrapping the old unused cars, it should be integrated into circulation again but lessen their emission of contaminant gas.
+
+So with this project, I want to showcase the simplicity but elegant style of these cars and to promote the circulation of these cars with the help of modern technology.
+
+### Favicon
+This is the image I used as favicon for this project
+
+![show favicon site image here](static/images/favicon.ico)
+
+
 ### Functionality of Project
 This application contains ....
  
@@ -58,11 +65,10 @@ _Developer:_
 lorem
  
 ##### 2. Color Scheme
-lorem - replace as necessary
+
+![Color Scheme](static/images/retro-colors.png)
  
-detail color palettes/swatches here using images.
- 
-The colors used throughout and what for etc....
+This is the color scheme I selected for this project.
  
 ##### 3. Logo
 The logo was ... add detail, or remove as necessary
