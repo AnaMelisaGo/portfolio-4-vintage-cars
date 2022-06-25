@@ -168,7 +168,8 @@ footer {
 /* almost all "cars" style is from: https://codepen.io/francisco-kataldo/pen/LBBryV */
 .contain {
 	height: 100%;
-    justify-content: center;
+    display: flex;
+    margin: 0 auto;
 }
 
 .contain-photo {
@@ -176,6 +177,7 @@ footer {
 	padding: 0;
 	overflow: hidden;
 	max-width: 410px;
+    height: 300px;
 	margin: 15px;
     position: relative;
 }
@@ -282,6 +284,21 @@ footer {
 	opacity: 1;
 }
 
+.post-container {
+    position: relative;
+    padding: 0 3px;
+}
+
+.post-container .can-rent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    height: 70px;
+    width: 70px;
+    line-height: 5;
+}
+
 /* -----------  Car Details  ---------------------------------------------------------------------------------------- */
 
 .masthead {
@@ -352,11 +369,10 @@ footer {
     position: fixed;
     bottom: 40px;
     right: 30px;
-    transition: background-color .3s, 
-      opacity .5s, visibility .5s;
+    transition: background-color .3s, opacity .5s, visibility .5s;
     opacity: 0;
     visibility: hidden;
-    z-index: 1000;
+    z-index: 10;
     text-decoration: none;
 }
 
@@ -533,6 +549,12 @@ iframe[style] {
 /* -----------  Contact us --------------------------------------------------------------------------------------- */
 .contact-container {
     background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
 }
 
 .contact-container p {
@@ -560,7 +582,7 @@ iframe[style] {
     #navbarResponsive
     {
         position:absolute;
-        z-index: 10;
+        z-index: 100;
         right: 0;
         top: 143px;
         background-color: var(--vintage-drk-brown);
@@ -592,9 +614,7 @@ iframe[style] {
     .navbar-nav .nav-item,
     .navbar .navbar-nav .nav-link {
         padding: 0 5px 0;
-        /* margin-left: 45%; */
     }
-
 }
 
 /* medium devices */
@@ -602,6 +622,10 @@ iframe[style] {
 
     .navbar-brand img {
         width: 150px;
+    }
+
+    .contain {
+        margin-left: 10%;
     }
 }
 
@@ -615,13 +639,20 @@ iframe[style] {
         width: 100px;
     }
 
+    .contain {
+        margin-left: auto;
+    }
+
     .comment-line {
         border-bottom: none;
-    
     }
     
     .img-width {
         width: 300px;
+    }
+
+    .post-container .can-rent {
+        transform: translate(10%, 0%);
     }
 
     .heart-icon, .comment-icon {

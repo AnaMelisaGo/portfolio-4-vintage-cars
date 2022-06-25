@@ -6,48 +6,54 @@
 
 {%  block content %}
 
-<div class="container-fluid">
+<div class="container">
 	<h2 class="text-center">VIEW ALL VINTAGE CARS</h2>
-	<div class="container">
-		<div class="row contain">
-
-			<!-- Photo container -->
-			{% for post in post_car %}
-			<div class="col-lg-4 col-md-12 contain-photo">
+	<div class="row contain">
+		<!-- Photo container -->
+		{% for post in post_car %}
+		<div class="post-container col-lg-4 col-md-6">
+			{% if post.can_rent %}
 				<div class="row">
-					<div class="col-lg-4 col-md-12">
-						<div class="view-more text-white hvr-icon-grow">
-							<a href="{% url 'car_detail' post.id %}"><i class="far fa-eye px-3 hvr-icon"></i></a>
-							<span>
-								<i class="far fa-heart"></i>
-							</span>
-							<span class="col-1">
-								<i class="far fa-comments"></i>
-							</span>
+					<div class="col-2 can-rent badge rounded-pill bg-danger">
+						<p>For Rent</p>
+					</div>
+				</div>
+			{% endif %}
+			<div class="row">
+				<div class="col contain-photo">
+					<div class="row">
+						<div class="col">
+							<div class="view-more text-white hvr-icon-grow">
+								<a href="{% url 'car_detail' post.id %}"><i class="far fa-eye px-3 hvr-icon"></i></a>
+								<span>
+									<i class="far fa-heart"></i>
+								</span>
+								<span class="col-1">
+									<i class="far fa-comments"></i>
+								</span>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-12">
-						<article class="text-left">
-							<h2>{{ post.car_model_title }}</h2>
-							<h4>({{ post.year_manufactured }})</h4>
-						</article>
+					<div class="row">
+						<div class="col">
+							<article class="text-left">
+								<h2>{{ post.car_model_title }}</h2>
+								<h4>({{ post.year_manufactured }})</h4>
+							</article>
+						</div>
 					</div>
+	
+					{% if "placeholder" in post.car_image.url %}
+					<img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
+					{% else %}
+					<img src="{{ post.car_image.url }}" alt="Car Image">
+					{% endif %}
 				</div>
-
-				{% if "placeholder" in post.car_image.url %}
-				<img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
-				{% else %}
-				<img src="{{ post.car_image.url }}" alt="Car Image">
-				{% endif %}
 			</div>
-
-			{% endfor %}
-
-			
-		</div>	
-	</div>
+		</div>
+		{% endfor %}
+	</div>	
+	
 	<div>
 		<!-- pagination -->
 		<nav aria-label="Page navigation example">

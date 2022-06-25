@@ -22,6 +22,7 @@ class AddCarForm(forms.ModelForm):
             'content',
             'car_image',
             'status',
+            'can_rent',
         )
         widgets = {
             'car_model_title': forms.TextInput(
