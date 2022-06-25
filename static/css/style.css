@@ -164,6 +164,41 @@ footer {
     font-size: 13px;
 }
 
+
+/* -----------  about  -------------------------------------------------------------------------------------------- */
+
+.how-container {
+    height: 30rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.how-container img {
+    height: 100%;
+    width: 100%;
+}
+
+.how-container .how-content {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    margin: 30px;
+}
+
+.card{
+    width: 18rem;
+    background-color: rgba(177, 152, 127, 0.3);
+}
+
+.card-text {
+    padding: 15px;
+}
+
+
+
+
 /* -----------  Cars  -------------------------------------------------------------------------------------------- */
 /* almost all "cars" style is from: https://codepen.io/francisco-kataldo/pen/LBBryV */
 .contain {
@@ -635,6 +670,10 @@ iframe[style] {
     .contain {
         margin-left: 10%;
     }
+
+    .card-text {
+        display: none;
+    }
 }
 
 /* small devices */
@@ -668,4 +707,8 @@ iframe[style] {
         width: 100px;
     }
 
+    .how-container .how-content {
+        top: 0;
+        left: 0;
+    }
 }
