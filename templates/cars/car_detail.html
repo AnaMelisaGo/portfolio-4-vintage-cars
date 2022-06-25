@@ -12,7 +12,13 @@
             {% else %}
             <img src="{{ post_car.car_image.url }}" alt="Car image" width="100%">
             {% endif %}
-
+            {% if post_car.can_rent %}
+            <div class="row">
+                <div class="col-2 can-rent badge rounded-pill bg-danger">
+                    <p>For Rent</p>
+                </div>
+            </div>
+            {% endif %}
             <div class="col post-heading main-text">
                 <h1 class="px-4">{{ post_car.car_model_title }}</h1>
                 <h2 class="subheading px-4">({{ post_car.year_manufactured }})</h2>
