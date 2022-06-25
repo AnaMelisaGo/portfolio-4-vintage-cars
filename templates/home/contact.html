@@ -27,9 +27,9 @@
                 <!--  onsubmit="return sendMail(this) -->
                 {% csrf_token %}
                 <input type="hidden" value="{{ USER_ID }}" id="user_id">
-                <input class="form-control" id="name" type="text" name="user_name" placeholder="Complete name">
-                <input class="form-control" id="email" type="email" name="user_email" placeholder="Email">
-                <textarea class="form-control mb-1" id="message" name="message" id="" cols="30" rows="5" placeholder="Your message here"></textarea>
+                <input class="form-control" id="name" type="text" name="user_name" placeholder="Complete name" required>
+                <input class="form-control" id="email" type="email" name="user_email" placeholder="Email" required>
+                <textarea class="form-control mb-1" id="message" name="message" id="" cols="30" rows="5" placeholder="Your message here" required></textarea>
                 <!-- <input type="submit" name="submit" id="submit_contact" class="btn btn-secondary" value="Send message"> -->
                 <button type="submit" class="btn btn-secondary px-4 my-2" id="submit" enctype="multipart/form-data">Submit</button>
             </form>
