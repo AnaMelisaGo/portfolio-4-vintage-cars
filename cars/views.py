@@ -190,7 +190,6 @@ class EditCarPost(View):
         )
         if edit_car.is_valid():
             edit_car.save()
-            post_car.date_created = post_car.date_updated
             messages.add_message(
                     request,
                     messages.SUCCESS,

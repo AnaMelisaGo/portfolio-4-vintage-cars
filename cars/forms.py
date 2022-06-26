@@ -27,12 +27,14 @@ class AddCarForm(forms.ModelForm):
         widgets = {
             'car_model_title': forms.TextInput(
                 attrs={
-                    'class': 'form-control title-input'
+                    'class': 'form-control title-input',
+                    'placeholder': 'Car model'
                 }
             ),
             'year_manufactured': forms.TextInput(
                 attrs={
-                    'class': 'form-control year-input'
+                    'class': 'form-control year-input',
+                    'placeholder': 'Add year'
                 }
             ),
             'content': SummernoteWidget(

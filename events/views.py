@@ -47,7 +47,7 @@ class AddEventView(generic.CreateView):
             'events': 'active',
             'form': form,
         }
-        return render(request, 'cars/add_car.html', context)
+        return render(request, 'events/add_event.html', context)
 
     def post(self, request, *args, **kwargs):
         """
@@ -96,7 +96,7 @@ class EditEventView(generic.UpdateView):
             'form': edit_event,
             'events': 'active',
         }
-        return render(request, 'cars/edit_car.html', context)
+        return render(request, 'events/edit_event.html', context)
 
     def post(self, request, pk, *args, **kwargs):
         """
@@ -112,11 +112,11 @@ class EditEventView(generic.UpdateView):
             messages.add_message(
                     request,
                     messages.SUCCESS,
-                    "Your car is modified successfully!"
+                    "Your event is updated successfully!"
                 )
             return redirect('events')
         context = {
             'form': edit_event,
             'events': 'active',
         }
-        return render(request, 'cars/edit_car.html', context)
+        return render(request, 'events/edit_event.html', context)

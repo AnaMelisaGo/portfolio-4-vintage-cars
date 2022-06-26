@@ -1,20 +1,26 @@
 {% extends 'base.html' %}
 
-{% block title %}Add Post{% endblock %}
+{% block title %}Add Event{% endblock %}
 
 {% block content %}
-<div class="page-wrapper bg-dark p-t-100 p-b-50 mx-auto">
-    <div class="col-md-8 mx-5 py-5">
-        <div class="card-6">
-            <div class="card-heading">
-                <h2 class="title">Add event</h2>
-            </div>
-            <div class="card-body">
-                <form method="POST">
+<div class="container bg-dark">
+    <div class="row text-center my-5">
+        <div class="col-md-8 offset-md-2 col-sm">
+            <!-- header -->
+            <h2>Add event post</h2>
+        </div>
+    </div>
+    <!-- Post form -->
+    <div class="row">
+        <div class="col-md-8 offset-md-2 col-sm">
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
+                    <div class="d-flex justify-content-center mb-5 pb-5 pt-3">
+                        <button type="submit" class="btn vintage-btn">Post event</button>
+                    </div>
                 </form>
-                <button class="btn btn-success mt-3" type="submit">Post Event</button>
             </div>
         </div>
     </div>
