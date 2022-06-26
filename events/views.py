@@ -120,3 +120,22 @@ class EditEventView(generic.UpdateView):
             'events': 'active',
         }
         return render(request, 'events/edit_event.html', context)
+
+
+class DeleteEventView(generic.DeleteView):
+    """
+    To delete an event post
+    """
+    def get(self, request, pk, *args, **kwargs):
+        """
+        A function that deletes the desired object and redirects
+        user to user profile page
+        """
+        event = get_object_or_404(Event, pk=pk)
+        event.delete()
+        messages.add_message(
+                    request,
+                    messages.ERROR,
+                    "The event is deleted"
+                )
+        return redirect('events')
