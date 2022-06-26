@@ -10,11 +10,6 @@ class PostCarAdmin(SummernoteModelAdmin):
     list_display = ('car_model_title', 'status', 'date_created')
     search_fields = ['car_model_title', 'content']
     summernote_fields = ('content')
-    actions = ['add_featured_car']
-
-    def add_featured_car(self, request, queryset):
-        """ Add a featured car """
-        queryset.update(featured_car=True)
 
 
 admin.site.register(Comment)
