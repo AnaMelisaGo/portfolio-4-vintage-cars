@@ -542,11 +542,11 @@ footer {
 
 
 .title-input {
-    max-width: 50rem;
+    max-width: 55rem;
 }
 
 .year-input {
-    width: 100px;
+    width: 150px;
 }
 
 .status-input {
@@ -642,6 +642,28 @@ iframe[style] {
     height: 100%;
 }
 
+.main-event {
+    position: relative;
+}
+
+.main-event .add-button {
+    position: absolute;
+    bottom: -70px;
+    right: 40px;
+    border: 1px var(--vintage-white) solid;
+    font-size: 50px;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+
+}
+
+.add-button a {
+    text-decoration: none;
+    color: var(--vintage-white)
+}
+
 
 /* -----------  Responsive --------------------------------------------------------------------------------------- */
 
@@ -695,7 +717,7 @@ iframe[style] {
         margin-left: 10%;
     }
 
-    .card-text {
+    .c-text {
         display: none;
     }
 }
@@ -734,5 +756,9 @@ iframe[style] {
     .how-container .how-content {
         top: 0;
         left: 0;
+    }
+
+    .main-event .add-button {
+        bottom: -90px;
     }
 }

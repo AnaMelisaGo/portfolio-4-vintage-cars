@@ -4,49 +4,59 @@
 {% load static %}
 
 {% block content %}
-<h1 class="text-center uppercase my-4">Upcoming Events</h1>
-<div class="container">
-    {% for event in events_post %}
-    <div class="card mb-3 event-container">
-        <div class="row g-0">
-            <div class="col-md-4 event-img">
-                {% if "placeholder" in event.event_image.url %}
-					<img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
-				{% else %}
-					<img src="{{ event.event_image.url }}" alt="Event Image">
-				{% endif %}
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title fs-3">{{ event.event_title }}</h5>
-                    <p class="card-text text-capitalize">
-                        Posted by: {{ event.author }} <br>
-                        Venue: {{ event.location }} on {{ event.event_date | date:'D, d F, Y'}}
-                    </p>
-                    <p class="card-text">{{ event.event_excerpt }}</p>
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="card-text">
-                                <small class="text-muted">
-                                    Created on {{ event.date_created | date:'d F, Y' }}
-                                </small>
-                            </p>
-                        </div>
-                        <div class="col-2">
-                            <a href="{% url 'event_detail' event.pk %}" class="btn btn-success">Read</a>
-                        </div>
-                        <div class="col-2">
-                            <button class="btn btn-warning">Edit</button>
-                        </div>
-                        <div class="col-2">
-                            <button class="btn btn-danger">Delete</button>
+<div class="container-fluid main-event mb-5">
+    <h1 class="text-center uppercase my-4">Upcoming Events</h1>
+    {% if user.is_staff %}
+    <div class="add-button">
+        <a href="{% url 'add_event' %}"><i class="fas fa-plus"></i></a>
+    </div>
+    {% endif %}
+    <div class="container my-5">
+        {% for event in events_post %}
+        <div class="card mb-3 event-container">
+            <div class="row g-0">
+                <div class="col-md-4 event-img">
+                    {% if "placeholder" in event.event_image.url %}
+                        <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
+                    {% else %}
+                        <img src="{{ event.event_image.url }}" alt="Event Image">
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title fs-3">{{ event.event_title }}</h5>
+                        <p class="card-text text-capitalize">
+                            Posted by: {{ event.author }} <br>
+                            Venue: {{ event.location }} on {{ event.event_date }}
+                        </p>
+                        <p class="card-text">{{ event.event_excerpt }}</p>
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        Created on {{ event.date_created | date:'d F, Y' }}
+                                    </small>
+                                </p>
+                            </div>
+                            <div class="col-md-2 col-3 py-1">
+                                <a href="{% url 'event_detail' event.pk %}" class="btn btn-success">Read</a>
+                            </div>
+                            {% if user.is_staff %}
+                            <div class="col-md-2 col-3 py-1">
+                                <button class="btn btn-warning">Edit</button>
+                            </div>
+                            <div class="col-md-2 col-3 py-1">
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
+
 
 {% endblock %}

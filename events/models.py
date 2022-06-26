@@ -12,7 +12,7 @@ class Event(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='events'
     )
-    event_date = models.DateTimeField()
+    event_date = models.CharField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)
     event_excerpt = models.TextField(default='Short text about the event')
     content = models.TextField()
