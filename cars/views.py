@@ -6,6 +6,7 @@ from django.core.paginator import Paginator
 from cloudinary.forms import cl_init_js_callbacks
 from .models import PostCar, Comment
 from .forms import AddCarForm, CommentForm
+from .filters import PostCarFilter
 
 
 class CarPageView(View):
@@ -15,12 +16,18 @@ class CarPageView(View):
     def get(self, request, *args, **kwargs):
         """ return cars page """
         post_car = PostCar.objects.filter(status=1).order_by('-date_created')
+        # filter
+        car_filter = PostCarFilter(request.GET, queryset=post_car)
+        post_car = car_filter.qs
+
+        # paginator
         paginator = Paginator(post_car, 6)
         page_number = request.GET.get('page')
         page_car = paginator.get_page(page_number)
         context = {
             'cars': 'active',
             'post_car': page_car,
+            'car_filter': car_filter,
         }
         return render(request, 'cars/cars.html', context)
 

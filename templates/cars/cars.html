@@ -5,9 +5,24 @@
 {% load static %}
 
 {%  block content %}
-
+<div class="container-fluid justify-content-center">
+	<div class="row">
+		<div class="col">
+			<h2 class="text-center">VIEW ALL VINTAGE CARS</h2>
+		</div>
+	</div>
+	<div class="row mt-1º text-center">
+		<div class="col">
+			<div class="filter-body">
+				<form method="GET">
+					{{ car_filter.form }}
+					<button class="btn btn-secondary my-1" type="submit">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="container">
-	<h2 class="text-center">VIEW ALL VINTAGE CARS</h2>
 	<div class="row contain">
 		<!-- Photo container -->
 		{% for post in post_car %}
