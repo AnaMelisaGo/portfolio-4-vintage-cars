@@ -14,6 +14,7 @@ class Event(models.Model):
     )
     event_date = models.DateTimeField()
     date_created = models.DateTimeField(auto_now_add=True)
+    event_excerpt = models.TextField(default='Short text about the event')
     content = models.TextField()
     event_image = CloudinaryField('image', default='placeholder')
     likes = models.ManyToManyField(
