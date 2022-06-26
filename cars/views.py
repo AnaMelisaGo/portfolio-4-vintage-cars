@@ -3,7 +3,6 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.views import View
 from django.core.paginator import Paginator
-from cloudinary.forms import cl_init_js_callbacks
 from .models import PostCar, Comment
 from .forms import AddCarForm, CommentForm
 from .filters import PostCarFilter
@@ -115,7 +114,6 @@ class AddCarPost(View):
     """
     To create a post
     """
-
     def get(self, request, *args, **kwargs):
         """
         To view AddCarForm in add_car.html, and pass context to template
