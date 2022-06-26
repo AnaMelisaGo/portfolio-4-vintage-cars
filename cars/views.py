@@ -96,8 +96,18 @@ class LikeCar(View):
         post_car = get_object_or_404(PostCar, pk=post_id)
         if post_car.likes.filter(id=request.user.id).exists():
             post_car.likes.remove(request.user)
+            messages.add_message(
+                request,
+                messages.ERROR,
+                "You unlike the car."
+            )
         else:
             post_car.likes.add(request.user)
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                "You like the car."
+            )
         return HttpResponseRedirect(reverse('car_detail', args=[post_id]))
 
 
@@ -183,6 +193,11 @@ class EditCarPost(View):
         if edit_car.is_valid():
             edit_car.save()
             post_car.date_created = post_car.date_updated
+            messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    "Your car is modified successfully!"
+                )
             return redirect('car_detail', str(post_id))
         context = {
             'form': edit_car,
@@ -202,4 +217,9 @@ class DeleteCarPost(View):
         """
         post_car = get_object_or_404(PostCar, pk=post_id)
         post_car.delete()
+        messages.add_message(
+                    request,
+                    messages.ERROR,
+                    "Your post is deleted"
+                )
         return redirect('user_profile')
