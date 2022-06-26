@@ -17,7 +17,7 @@ class Event(models.Model):
     content = models.TextField()
     event_image = CloudinaryField('image', default='placeholder')
     likes = models.ManyToManyField(
-        User, related_name='like_cars', blank=True
+        User, related_name='like_events', blank=True
     )
 
     class Meta:
