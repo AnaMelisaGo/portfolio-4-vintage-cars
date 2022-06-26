@@ -24,8 +24,8 @@
                 <h2 class="subheading px-4">({{ post_car.year_manufactured }})</h2>
                 <span class="meta px-4">
                     Posted by
-                    <a href="#!">{{ post_car.author }}</a>
-                    {{ post_car.date_updated }}
+                    <span class="text-capitalize">{{ post_car.author }}</span> on
+                    {{ post_car.date_updated | date:'F d, Y' }}
                 </span>
             </div>
         </div>
