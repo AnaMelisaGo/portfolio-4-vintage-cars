@@ -1,5 +1,6 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
 from django.views import generic
 from .models import Event
 from .forms import EventForm
@@ -36,20 +37,9 @@ class AddEventView(generic.CreateView):
     """
     A view class to add new event post, only available for staff
     """
-    # model = Event
-    # template_name = 'events/add_event.html'
-    # fields = [
-    #     'event_title',
-    #     'location',
-    #     'event_date',
-    #     'event_excerpt',
-    #     'content',
-    #     'event_image'
-    # ]
-
     def get(self, request, *args, **kwargs):
         """
-        To view AddCarForm in add_car.html, and pass context to template
+        To view EventForm in add_event.html, and pass context to template
         to be used to create a post
         """
         form = EventForm(request.POST)
@@ -61,7 +51,7 @@ class AddEventView(generic.CreateView):
 
     def post(self, request, *args, **kwargs):
         """
-        To post
+        To post an event if form is valid
         """
         if request.method == "POST":
             form = EventForm(request.POST, request.FILES)
@@ -78,7 +68,7 @@ class AddEventView(generic.CreateView):
                 messages.add_message(
                     request,
                     messages.SUCCESS,
-                    "Your car is posted successfully. Thank you for sharing!"
+                    "Event is successfully posted. Thank you for sharing!"
                 )
                 return redirect('events')
         else:
@@ -89,3 +79,44 @@ class AddEventView(generic.CreateView):
         }
         return render(request, 'events/add_event.html', context)
 
+
+class EditEventView(generic.UpdateView):
+    """
+    To update event post
+    """
+    def get(self, request, pk, *args, **kwargs):
+        """
+        To get the form to be edited
+        """
+        event = get_object_or_404(Event, pk=pk)
+        edit_event = EventForm(
+            request.POST or None, request.FILES or None, instance=event
+        )
+        context = {
+            'form': edit_event,
+            'events': 'active',
+        }
+        return render(request, 'cars/edit_car.html', context)
+
+    def post(self, request, pk, *args, **kwargs):
+        """
+        Takes the content of the event post and put them on each field. Request.FILES
+        or None is used to get media files to be posted.
+        """
+        event = get_object_or_404(Event, pk=pk)
+        edit_event = EventForm(
+            request.POST or None, request.FILES or None, instance=event
+        )
+        if edit_event.is_valid():
+            edit_event.save()
+            messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    "Your car is modified successfully!"
+                )
+            return redirect('events')
+        context = {
+            'form': edit_event,
+            'events': 'active',
+        }
+        return render(request, 'cars/edit_car.html', context)

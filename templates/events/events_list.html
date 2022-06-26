@@ -43,7 +43,7 @@
                             </div>
                             {% if user.is_staff %}
                             <div class="col-md-2 col-3 py-1">
-                                <button class="btn btn-warning">Edit</button>
+                                <a href="{% url 'edit_event' event.pk %}" class="btn btn-warning">Edit</a>
                             </div>
                             <div class="col-md-2 col-3 py-1">
                                 <button class="btn btn-danger">Delete</button>

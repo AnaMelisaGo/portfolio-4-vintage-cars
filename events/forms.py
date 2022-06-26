@@ -27,23 +27,27 @@ class EventForm(forms.ModelForm):
         widgets = {
             'event_title': forms.TextInput(
                 attrs={
-                    'class': 'form-control title-input'
+                    'class': 'form-control title-input',
+                    'placeholder': 'Event title'
                 }
             ),
             'location': forms.TextInput(
                 attrs={
-                    'class': 'form-control title-input'
+                    'class': 'form-control title-input',
+                    'placeholder': 'Enter location'
                 }
             ),
             'event_date': forms.DateInput(
                 attrs={
-                    'class': 'datepicker year-input'
+                    'class': 'datepicker year-input',
+                    'placeholder': 'Select date'
                 }
             ),
             'event_excerpt': forms.Textarea(
                 attrs={
                     'class': 'form-control',
                     'rows': 2,
+                    'placeholder': 'Insert a short text...'
                 }
             ),
             'content': SummernoteWidget(
