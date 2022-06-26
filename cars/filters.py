@@ -12,7 +12,7 @@ class CanRentWidget(BooleanWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.choices = (
-            ("Unknown", ("All")), ("true", ("Yes")), ("false", ("No"))
+            ("Unknown", ("---")), ("true", ("Yes")), ("false", ("No"))
         )
 
 
@@ -36,7 +36,7 @@ class PostCarFilter(django_filters.FilterSet):
         label='Year manufactured',
         widget=TextInput(attrs={'placeholder': 'max'}),
     )
-    can_rent = BooleanFilter(widget=CanRentWidget)
+    can_rent = BooleanFilter(label='For rent', widget=CanRentWidget)
 
     class Meta:
         """ class meta filter """

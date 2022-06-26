@@ -12,7 +12,7 @@ class CanRentWidget(BooleanWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.choices = (
-            ("Unknown", ("All")), ("true", ("Yes")), ("false", ("No"))
+            ("Unknown", ("---")), ("true", ("Yes")), ("false", ("No"))
         )
 
 
