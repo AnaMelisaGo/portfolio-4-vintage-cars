@@ -79,7 +79,15 @@
     </div>
     <!-- End post content -->
 </article>
-
+{% if post_car.can_rent %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 d-flex justify-content-center">
+            <a href="{% url 'contact' %}" class="btn btn-rent fs-3 px-5">Rent this car</a>
+        </div>
+    </div>
+</div>
+{% endif %}
 <!-- Comment section -->
 <div class="contain-fluid justify-content-center my-5">
     <div class="row">

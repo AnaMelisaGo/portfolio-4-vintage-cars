@@ -338,6 +338,15 @@ footer {
     line-height: 5;
 }
 
+.btn-rent {
+    background-color: var(--vintage-brown);
+    color: var(--vintage-white);
+}
+
+.btn-rent:hover {
+    background-color: var(--vintage-red);
+    box-shadow: rgba(157, 156, 156, .3) 0px 19px 38px, rgba(157, 156, 156, .3) 0px 15px 12px;
+}
 /* -----------  Car Details  ---------------------------------------------------------------------------------------- */
 
 .masthead {
