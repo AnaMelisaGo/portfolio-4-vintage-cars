@@ -67,40 +67,44 @@
         <!-- Show all post if the author is the user -->
         {%  for post in post_car  %}
         {% if user.id is post.author.id %}
-        <div class="col-lg-4 col-md-12 contain-photo g-0 px-2">
+        <div class="col-lg-4 col-md-12">
             <div class="row">
-                <div class="col-lg-4 col-md-12">
-                    <div class="view-more text-white text-center">
-                        <a href="{% url 'car_detail' post.id %}" class="hvr-icon-spin" data-bs-toggle="tooltip"
-                            data-bs-placement="bottom" title="Read more">
-                            <i class="far fa-eye hvr-icon"></i>
-                        </a>
-                        <a href="{% url 'edit_car' post.id %}" class="hvr-icon-grow-rotate" data-bs-toggle="tooltip"
-                            data-bs-placement="bottom" title="Edit post">
-                            <i class="fas fa-pen hvr-icon"></i>
-                        </a>
-                        <button type="button" class="t-white hvr-icon-drop delete-btn" data-bs-toggle="modal"
-                            data-bs-target="#modal-delete">
-                            <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                <i class="fas fa-trash hvr-icon"></i>
-                            </span>
-                        </button>
+                <div class="col contain-photo">
+                    <div class="row">
+                        <div class="col">
+                            <div class="view-more text-white text-center">
+                                <a href="{% url 'car_detail' post.id %}" class="hvr-icon-spin" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Read more">
+                                    <i class="far fa-eye hvr-icon"></i>
+                                </a>
+                                <a href="{% url 'edit_car' post.id %}" class="hvr-icon-grow-rotate" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Edit post">
+                                    <i class="fas fa-pen hvr-icon"></i>
+                                </a>
+                                <button type="button" class="t-white hvr-icon-drop delete-btn" data-bs-toggle="modal"
+                                    data-bs-target="#modal-delete">
+                                    <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
+                                        <i class="fas fa-trash hvr-icon"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12">
+                            <article class="text-left">
+                                <h2>{{ post.car_model_title }}</h2>
+                                <h4>({{ post.year_manufactured }})</h4>
+                            </article>
+                        </div>
+                    </div>
+                    {% if "placeholder" in post.car_image.url %}
+                    <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
+                    {% else %}
+                    <img src="{{ post.car_image.url }}" alt="Car Image">
+                    {% endif %}
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-12">
-                    <article class="text-left">
-                        <h2>{{ post.car_model_title }}</h2>
-                        <h4>({{ post.year_manufactured }})</h4>
-                    </article>
-                </div>
-            </div>
-            {% if "placeholder" in post.car_image.url %}
-            <img src="{% static 'images/screenshots/sshot-logo-dark.png' %}" alt="Default image">
-            {% else %}
-            <img src="{{ post.car_image.url }}" alt="Car Image">
-            {% endif %}
         </div>
         <!-- Modal to confirm post deletion -->
         <div class="modal fade" id="modal-delete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -130,7 +134,6 @@
     <div class="row">
         <div class="col-md-8 offset-md-2 mt-5 pt-3 text-center">
             <p>Please log in to view and edit your posts.</p>
-
         </div>
     </div>
     {% endif %}
