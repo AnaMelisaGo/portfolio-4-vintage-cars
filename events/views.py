@@ -1,7 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse_lazy
-from django.views import generic
+from django.views import generic, View
 from .models import Event
 from .forms import EventForm
 
@@ -37,17 +36,14 @@ class AddEventView(generic.CreateView):
     """
     A view class to add new event post, only available for staff
     """
-    def get(self, request, *args, **kwargs):
-        """
-        To view EventForm in add_event.html, and pass context to template
-        to be used to create a post
-        """
-        form = EventForm(request.POST)
-        context = {
-            'events': 'active',
-            'form': form,
-        }
-        return render(request, 'events/add_event.html', context)
+    model = Event
+    form_class = EventForm
+    template_name = 'events/add_event.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AddEventView, self).get_context_data(**kwargs)
+        context['events'] = 'active'
+        return context
 
     def post(self, request, *args, **kwargs):
         """
@@ -75,12 +71,12 @@ class AddEventView(generic.CreateView):
             form = EventForm()
 
         context = {
-            'form': form
+            'form': form,
         }
         return render(request, 'events/add_event.html', context)
 
 
-class EditEventView(generic.UpdateView):
+class EditEventView(View):
     """
     To update event post
     """
@@ -100,8 +96,8 @@ class EditEventView(generic.UpdateView):
 
     def post(self, request, pk, *args, **kwargs):
         """
-        Takes the content of the event post and put them on each field. Request.FILES
-        or None is used to get media files to be posted.
+        Takes the content of the event post and put them on each field. 
+        Request.FILES or None is used to get media files to be posted.
         """
         event = get_object_or_404(Event, pk=pk)
         edit_event = EventForm(
@@ -122,7 +118,7 @@ class EditEventView(generic.UpdateView):
         return render(request, 'events/edit_event.html', context)
 
 
-class DeleteEventView(generic.DeleteView):
+class DeleteEventView(View):
     """
     To delete an event post
     """

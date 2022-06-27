@@ -17,9 +17,6 @@ class Event(models.Model):
     event_excerpt = models.TextField(default='Short text about the event')
     content = models.TextField()
     event_image = CloudinaryField('image', default='placeholder')
-    likes = models.ManyToManyField(
-        User, related_name='like_events', blank=True
-    )
 
     class Meta:
         """
@@ -33,12 +30,6 @@ class Event(models.Model):
         Return event title
         """
         return self.event_title
-
-    def number_of_likes(self):
-        """
-        Function to count the number of likes
-        """
-        return self.likes.count()
 
 
 class EventComment(models.Model):
