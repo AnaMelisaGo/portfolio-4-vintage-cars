@@ -37,6 +37,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['portfolio-4-vintage-cars.herokuapp.com', 'localhost']
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
 

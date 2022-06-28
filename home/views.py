@@ -1,14 +1,16 @@
 import os
 from django.shortcuts import render
 from django.views import View
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 
 class HomePageView(View):
     """
-    To view home page so any user can access the 
+    To view home page so any user can access the
     different pages of the website
     """
 
+    @xframe_options_exempt
     def get(self, request):
         """ return homepage """
         context = {
