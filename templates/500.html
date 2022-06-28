@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +23,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>404 ERROR</title>
+    <title>500 ERROR</title>
 </head>
 
 <body>
@@ -40,17 +40,17 @@
             <div class="col-md-8 offset-md-2">
                 <div class="row">
                     <div class="col d-flex justify-content-center">
-                        <img src="{% static 'images/error-404.png' %}" alt="404 Error">
+                        <img src="{% static 'images/error-500.png' %}" alt="500 Error">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <img src="{% static 'images/animated-car-mechanic.gif' %}" alt="Mechanic gif">
+                    <div class="col d-flex justify-content-center grease-monkey">
+                        <img src="{% static 'images/grease-monkey.gif' %}" alt="Grease Monkey mechanic">
                     </div>
                 </div>
-                <p class="text-center">An error is found. Your car is undergoing some tests. But you can still go back
-                    <br> <a href="{% url 'home' %}" class="t-red link-home">Home <i class="fas fa-home"></i></a> and
-                    look for another one.</p>
+                <p class="text-center">Something went wrong... But don't worry our grease monkey is trying to fix it. We
+                    will drive you back <br> <a href="{% url 'home' %}" class="t-red link-home">Home <i
+                            class="fas fa-home"></i></a> so you can have some tea.</p>
             </div>
         </div>
     </div>

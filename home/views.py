@@ -34,7 +34,15 @@ class ContactPage(View):
 
 def handle_404_error(request, exception):
     """
-    Display custom 500.html template to user
+    Display custom 400.html template to user
     when 404 error is detected
     """
     return render(request, '404.html')
+
+
+def handle_500_error(request):
+    """
+    Display custom 500.html template to user
+    when 500 error is detected
+    """
+    return render(request, '500.html')

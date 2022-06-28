@@ -75,15 +75,6 @@ footer {
     text-transform: uppercase;
 }
 
-.link-home {
-    text-decoration: none;
-}
-
-.link-home:hover {
-    color: var(--vintage-brown)
-}
-
-
 /* -----------  Background style  ------------------------------------------------------------------------------------ */
 
 .black-bg {
@@ -680,6 +671,22 @@ iframe[style] {
 .add-button a {
     text-decoration: none;
     color: var(--vintage-white)
+}
+
+
+/* -----------  Responsive --------------------------------------------------------------------------------------- */
+
+.link-home {
+    text-decoration: none;
+}
+
+.link-home:hover {
+    color: var(--vintage-brown)
+}
+
+.grease-mokey img {
+    height: 100px;
+    width: 100px;
 }
 
 
