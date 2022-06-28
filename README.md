@@ -46,7 +46,14 @@ I opted to use an image of a very well known classic car as the favicon of my pr
 
 
 ### Functionality of Project
-This application contains ....
+
+There are different functionalities that are implemented in this project. One of them is to be able to register, to log in the registered username and to log out.
+
+Any users, general users and registered users can view and read any post created. Those posts are created only by registered users. It can also be updated or deleted only by the author.
+
+The Events section is integrated to the web page where anyone can browse to different upcoming events. Only admin staff can create, update and delete these posts. The rest of users can only read the content.
+A contact page is available for anyone who wants to rent a car or has any enquiry regarding a car, a post or the webpage.
+
  
 [Back to top](#table-of-contents)
  
@@ -54,14 +61,32 @@ This application contains ....
  
 #### User Stories:
 _Generic (Guest/Public) User:_
-* As a Generic User, I want to...
+* As a Generic User, I want to browse through different types of classic cars.
+* As a Generic User, I want to be able to filter out the cars that are available for rent.
+* As a Generic User, I want to see reviews of some users in the comment section.
+* As a Generic User, I want to be able to read about any upcoming event in the future.
+* As a Generic User, I want to be able to rent my favorite car.
+* As a Generic User, I want to contact the website for any enquiries.
+
  
 _Registers (Logged in) User:_
-* As a Registered User, I want to...
+* As a Registered User, I want to be able to enjoy a ride with my favorite classic cars by renting one anytime.
+* As a Registered User, I want to enjoy the car without worrying about the car expenses and maintenance.
+* As a Registered User, I want to be a part of a community of avid fans of classic and vintage cars.
+* As a Registered User, I want to post, edit and delete a classic car.
+* As a Registered User, I want to filter my posts so that I can manage them all, more especially those posts pending to be published.
+* As a Registered User, I want to be able to view any upcoming event and be able to be part of it.
  
+_Administrator:_
+* As an Administrator, I want to promote a very friendly community who wants to help and share with other users.
+* As an Administrator, I want to notify the whole community about upcoming events regarding classic cars anywhere.
+
 _Developer:_
-* As a Developer, I want to...
- 
+*As a Developer, I want to to be able to make a fully functioning webpage.
+*As a Developer, I want to use and apply the different languages I learned.
+*As a Developer, I want to upgrade my knowledge to gain more skills.
+
+
 #### Design
  
 ##### 1. Font
