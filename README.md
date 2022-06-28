@@ -32,12 +32,15 @@
  
 ## What does it do and what does it need to fulfill?
 
-Ever since automotives were invented, cars were evolving very fast and more environmentally friendly. But there are old cars that, though time already passes, are still as good as the modern ones. It’s good to point out that the world is accumulating a lot of garbage that, instead of scrapping the old unused cars, it should be integrated into circulation again but lessen their emission of contaminant gas.
+Ever since automotives were invented, they were evolving very fast and even more environmentally friendly. But there are old cars that, though time already passes, are still as good as the modern ones. It’s good to point out that the world is accumulating a lot of garbage and, instead of scrapping the old unused cars, it should be integrated into circulation again but lessen their emission of contaminant gas.
 
-So with this project, I want to showcase the simplicity but elegant style of these cars and to promote the circulation of these cars with the help of modern technology.
+With this project, I want to showcase the simplicity but elegant style of these cars and to be able to reuse these cars for different purposes and to promote them back into circulation with the help of modern technology. It's also a good opportunity for owners to gain cash by sharing their properties to avid fans of classic and vintage cars.
+
+This project is to show how easy and fast a single framework can build a real-life website with complete functionality and libraries to choose from. Django is an open-source web framework that provides an easy and efficient way to create websites with minimum hassles. It comes with resources that are required by developers, specially those who are just starting their journey in Software Development.
+
 
 ### Favicon
-This is the image I used as favicon for this project
+I opted to use an image of a very well known classic car as the favicon of my project.
 
 ![show favicon site image here](static/images/favicon.ico)
 
