@@ -5,7 +5,7 @@ from .models import Event
 from .forms import EventForm
 
 
-class EventView(generic.ListView):
+class EventListView(generic.ListView):
     """
     View the events
     """
@@ -13,7 +13,7 @@ class EventView(generic.ListView):
     template_name = 'events/events_list.html'
 
     def get_context_data(self, **kwargs):
-        context = super(EventView, self).get_context_data(**kwargs)
+        context = super(EventListView, self).get_context_data(**kwargs)
         context['events'] = 'active'
         context['events_post'] = Event.objects.all()
         return context
