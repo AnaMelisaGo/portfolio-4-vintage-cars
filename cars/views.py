@@ -172,6 +172,15 @@ class EditCarPost(View):
         edit_car = AddCarForm(
             request.POST or None, request.FILES or None, instance=post_car
         )
+        if edit_car.instance.author != request.user:
+            messages.add_message(
+                    request,
+                    messages.ERROR,
+                    "You are not allowed to update this post. " + 
+                    "Please select one of your posts instead. Thank you!"
+                )
+            return redirect('user_profile')
+
         context = {
             'form': edit_car,
             'user_profile': 'active',
@@ -213,6 +222,14 @@ class DeleteCarPost(View):
         user to user profile page
         """
         post_car = get_object_or_404(PostCar, pk=post_id)
+        if post_car.author != request.user:
+            messages.add_message(
+                    request,
+                    messages.ERROR,
+                    "You are not allowed to delete this post. " + 
+                    "Please select one of your posts instead. Thank you!"
+                )
+            return redirect('user_profile')
         post_car.delete()
         messages.add_message(
                     request,
