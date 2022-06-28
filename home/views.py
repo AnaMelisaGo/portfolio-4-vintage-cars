@@ -30,3 +30,11 @@ class ContactPage(View):
             'USER_ID': os.environ.get('USER_ID'),
         }
         return render(request, 'home/contact.html', context)
+
+
+def handle_404_error(request, exception):
+    """
+    Display custom 500.html template to user
+    when 404 error is detected
+    """
+    return render(request, '404.html')
