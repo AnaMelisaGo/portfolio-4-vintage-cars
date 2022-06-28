@@ -121,7 +121,7 @@ class AddCarPost(View):
         """
         form = AddCarForm(request.POST)
         context = {
-            'cars': 'active',
+            'user_profile': 'active',
             'form': form,
         }
         return render(request, 'cars/add_car.html', context)
@@ -174,7 +174,7 @@ class EditCarPost(View):
         )
         context = {
             'form': edit_car,
-            'cars': 'active',
+            'user_profile': 'active',
         }
         return render(request, 'cars/edit_car.html', context)
 
@@ -198,7 +198,7 @@ class EditCarPost(View):
             return redirect('car_detail', str(post_id))
         context = {
             'form': edit_car,
-            'cars': 'active',
+            'user_profile': 'active',
         }
         return render(request, 'cars/edit_car.html', context)
 
