@@ -1,6 +1,6 @@
 from django import forms
 from django_summernote.widgets import SummernoteWidget
-from .models import Event, EventComment
+from .models import Event
 
 
 class EventForm(forms.ModelForm):
@@ -54,25 +54,5 @@ class EventForm(forms.ModelForm):
                 attrs={'summernote': {
                     'width': '100%',
                 }}
-            ),
-        }
-
-
-class CommentForm(forms.ModelForm):
-    """
-    Create form for comments
-    """
-    class Meta:
-        """
-        Create fields to post comments
-        """
-        model = EventComment
-        fields = ('comment_body',)
-        widgets = {
-            'comment_body': forms.Textarea(
-                attrs={
-                    'class': 'form-control',
-                    'rows': 2,
-                }
             ),
         }

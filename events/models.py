@@ -30,28 +30,3 @@ class Event(models.Model):
         Return event title
         """
         return self.event_title
-
-
-class EventComment(models.Model):
-    """
-    Comment model for the events
-    """
-    post = models.ForeignKey(
-        Event, on_delete=models.CASCADE, related_name='event_comments'
-    )
-    name = models.CharField(max_length=100)
-    date_created = models.DateTimeField(auto_now_add=True)
-    comment_body = models.TextField()
-
-    class Meta:
-        """
-        Display comments in ascending order according to date
-        when comment was created
-        """
-        ordering = ['date_created']
-
-    def __str__(self):
-        """
-        Return a string of the comment
-        """
-        return f'Comment {self.comment_body} by {self.name}'
