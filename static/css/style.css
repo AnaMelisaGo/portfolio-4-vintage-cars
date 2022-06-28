@@ -75,6 +75,15 @@ footer {
     text-transform: uppercase;
 }
 
+.link-home {
+    text-decoration: none;
+}
+
+.link-home:hover {
+    color: var(--vintage-brown)
+}
+
+
 /* -----------  Background style  ------------------------------------------------------------------------------------ */
 
 .black-bg {
