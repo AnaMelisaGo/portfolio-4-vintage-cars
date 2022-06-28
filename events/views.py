@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Event
@@ -32,12 +33,13 @@ class EventDetail(generic.DetailView):
         return context
 
 
-class AddEventView(generic.CreateView):
+class AddEventView(PermissionRequiredMixin, generic.CreateView):
     """
     A view class to add new event post, only available for staff
     """
     model = Event
     form_class = EventForm
+    permission_required = 'is_staff'
     template_name = 'events/add_event.html'
 
     def get_context_data(self, **kwargs):
@@ -76,10 +78,12 @@ class AddEventView(generic.CreateView):
         return render(request, 'events/add_event.html', context)
 
 
-class EditEventView(View):
+class EditEventView(PermissionRequiredMixin, View):
     """
     To update event post
     """
+    permission_required = 'is_staff'
+
     def get(self, request, pk, *args, **kwargs):
         """
         To get the form to be edited
@@ -118,10 +122,12 @@ class EditEventView(View):
         return render(request, 'events/edit_event.html', context)
 
 
-class DeleteEventView(View):
+class DeleteEventView(PermissionRequiredMixin, View):
     """
     To delete an event post
     """
+    permission_required = 'is_staff'
+    
     def get(self, request, pk, *args, **kwargs):
         """
         A function that deletes the desired object and redirects
