@@ -5,16 +5,16 @@
 {% block content %}
 <div class="content my-5">
     <div class="row">
-        <div class="col-md-8 offset-md-2 col-10 offset-1 mb-3 py-1 contain-form form-group">
+        <div class="col-md-4 offset-md-4 col-10 offset-1 mb-3 py-1 contain-form form-group">
             <div class="row">
-                <div class="col-md-8 offset-md-2 col-10 offset-1 text-center px-3">
+                <div class="col text-center px-3">
                     <h1 class="my-5">Log In</h1>
                     <p>Log in to your profile. <br> If you're not registered yet, click <a href="{% url 'register' %}" class="reg-link t-white">here</a>.</p>
                 </div>
             </div>
             <!-- Sign up form -->
             <div class="row text-center">
-                <div class="col-md-8 offset-md-2 col-10 offset-1">
+                <div class="col">
                     <form method="POST" class="mt-2 mb-5">
                                 {% csrf_token %}
                                 {{ form.as_p }}

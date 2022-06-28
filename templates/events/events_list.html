@@ -12,6 +12,11 @@
     </div>
     {% endif %}
     <div class="container my-5">
+        {% with events_post.count as total_events %}
+            {% if total_events == 0 %}
+            <p class="text-center">No upcoming events</p>
+            {% endif %}
+        {% endwith %}
         {% for event in events_post %}
         <div class="card mb-3 event-container">
             <div class="row g-0">
