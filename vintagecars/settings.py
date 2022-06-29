@@ -169,11 +169,11 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-cloudinary.config( 
-  cloud_name = os.environ.get('cloud_name'),
-  api_key = os.environ.get('api_key'),
-  api_secret = os.environ.get('api_secret'),
-  secure = True
+cloudinary.config(
+  cloud_name=os.environ.get('cloud_name'),
+  api_key=os.environ.get('api_key'),
+  api_secret=os.environ.get('api_secret'),
+  secure=True
 )
 
 # Default primary key field type
