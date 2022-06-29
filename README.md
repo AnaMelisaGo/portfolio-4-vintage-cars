@@ -277,7 +277,9 @@ When a user is created, the username is the foreignKey for the PostCar that serv
 If a user is a staff member, this user can create, update, and delete events. But anyone, generic and registered users can view them, as well as the classic car posts.
  
 Time was running out fast, so I did some model modifications at the last minute. But it didn’t affect the final result.
- 
+
+[Back to Top](#table-of-contents)
+
 ## Features
 
 ### Navigation bar and Logo
@@ -326,13 +328,9 @@ Each card post has different buttons to view, edit or delete posts. The view red
 
 ![Event Post](#)
  
-The event page has the same feature as the car blog post. The only difference is that events can only be created by staff members. Admin users can create an event post, edit an event, and delete it. The add event button is at the bottom of the page to give it another style. With the help of my mentor I manage to add login required to each of the views (create, update, delete) and add permission required mixin in the Event app so that non-staff users and non-registered users cannot access any of the posts. I added the same code to the Cars app to prevent other users from updating or deleting other users posts and redirecting them to their own profile page.
+The event page has the same feature as the car blog post. The only difference is that events can only be created by staff members. Admin users can create an event post, edit an event, and delete it. The add event button is at the bottom of the page to give it another style. 
 
-![EditCarPost view](static/images/screenshots/screenshot-edit-view.png)
-
-<br>
-
-
+[Back to Top](#table-of-contents)
 
 ### The sign up, login and logout
 
@@ -350,9 +348,6 @@ To logout, a button is enabled beside the add post button on the profile navbar.
 
 ![Logout](static/images/screenshots/screenshot-logout-profile.png)
 
-static/images/screenshots/screenshot-logout-profile.png
-[Back to Top](#table-of-contents)
-
 <br>
 
 ### Contact Us page
@@ -363,25 +358,81 @@ This page is accessible from the main navbar. Anyone who wants to enquire or any
 
 ![Email Response](static/images/screenshots/screenshot-response-email.png)
 
- 
+
+
+### 404 and 500 page
+
+When page is not found, a 404 is rendered. When server error a 500 is rendered.
+
+<details>
+
+<summary>404 page</summary>
+
+![404 page](static/images/screenshots/screenshot-404.png)
+
+</details>
+
+<details>
+
+<summary>500 page</summary>
+
+![500 page](static/images/screenshots/screenshot-500.png)
+
+</details>
+
+[Back to Top](#table-of-contents)
+
+<br>
+
 #### Future Features:
  
-* Detail future implementations here...
+* For future features of the website, I would like to implement a notification for any form errors.
+
+* A proper profile page would be implemented where users can post their own photo as a profile picture and add some description about themselves and their favorite classic cars.
+
+* A comment section in the event page and enable the like button for all the created events.
+
+* To let users book directly any car and choose the date they want without any hassle and without filling up the contact page.
+
+* To be able to provide a section where users can make payments when renting a car through the website.
  
-## Testing
  
-Testing was ...
+## Testing, found bugs and fixes
  
-#### Found Bugs and Fixes:
- 
-During manual testing...
- 
+Testing was carried out manually throughout the development of this project. Constant testing was done using Chrome Dev tools. Testing was carried out with the following validators:
+
+* PEP8 python Validator
+
+* W3C Markup and CSS Validator
+
+* JSHint Validator
+
+All validity tests passed.
+
+* During development, naming the user profile app as `profile` had some conflict with the name. I needed to change the name to user profile instead. I had to change the template directory for the sign up, login and user profile into registration so that the login form could be rendered. I had some hard time during the implementation of login and signup form, but all was caused by the post method was lacking in the template.
+
+* I had some conflict during deployment to Heroku caused by an error with collectstatic. I managed to fix it with the help of “stackoverflow” [Solution](https://stackoverflow.com/questions/36665889/collectstatic-error-while-deploying-django-app-to-heroku).
+
+* My navbar wasn’t working well in the early stage of the project, but I fixed it by using position absolute.
+
+* During the implementation of the contact us page, I got stocked with emailjs due to the scripts. I fixed it by injecting script using jinja template
+`{% block script %}`
+`{% endblock %}`
+
+* During the middle stage of the project I came across an error with `Relation error` with my event app. I fixed it by running migrations.
+
+* On the final stage, I found out a bug when trying to have a screenshot with the application amiresponsive. Thanks to the help of one of the tutors, he helped me fix the problem with the X-FRAME and add a decorator in the home page view `@xframe_options_exempt`.
+
 [Back to Top](#table-of-contents)
  
 #### Defensive Design
  
 Defensive design for this application was...
  
+
+With some help, I manage to add login required to each of the views (create, update, delete) and add permission required mixin in the Event app so that non-staff users and non-registered users cannot access any of the posts. I added the same code to the Cars app to prevent other users from updating or deleting other users posts and redirecting them to their own profile page.
+![EditCarPost view](static/images/screenshots/screenshot-edit-view.png)
+
 ## Deployment
  
 Detail deployment here...
@@ -398,6 +449,6 @@ Detail deployment here...
  
 * Team 11 🤜
  
-###### <i>Disclaimer: This project was created for educational use only as part of Code Institute's __________</i>
+###### <i>Disclaimer: This project was created for educational use only as part of Code Institute's Porject Portfolio 4</i>
  
 [Back to Top](#table-of-contents)
