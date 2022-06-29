@@ -25,7 +25,7 @@
  
 ## Welcome to Vintage Cars!
 
-![show final site image here](static/images/screenshots/screenshot-amiresponsive.png)
+![Responsive](static/images/screenshots/screenshot-amiresponsive.png)
  
 ***
  
@@ -42,7 +42,7 @@ This project is to show how easy and fast a single framework can build a real-li
 ### Favicon
 I opted to use an image of a very well known classic car as the favicon of my project.
 
-![show favicon site image here](static/images/favicon.ico)
+![Vintage car favicon](static/images/favicon.ico)
 
 <br>
 
@@ -97,13 +97,13 @@ _Developer:_
 ### Design
  
 #### 1. Font
-Google fonts were used in this project. For the heading, `PLAYFAIR DISPLAY` was used to give it a vintage but elegant vibe. For the navbar font and some other area, `SPECIAL ELITE` was used to apply a look of an old typewriter style. For the rest of the website `SPACEMONO` was used.
+Google fonts were used in this project. For the heading, `PLAYFAIR DISPLAY` was used to give it a vintage but elegant vibe. For the navbar font and some other area, `SPECIAL ELITE` was used to apply a look of an old typewriter style. For the rest of the website `SPACE MONO` was used.
 
 <br>
 
 #### 2. Color Scheme
 
-The colors I used for this project are neutral colors. Black is mainly used throughout the project. It provides elegance and simplicity. I used other neutral colors to add more life and appeal to the page.
+Black is mainly used throughout the project. It provides elegance and simplicity. I used other colors to add more life and appeal to the page.
 
 The main page background belongs to Shecodes gradient color palette for students/alumni to use in their projects. I did some modifications of the colors follow the chosen color scheme.
 
@@ -113,41 +113,87 @@ The rest of the colors I used are as follows:
 
 ![Color Scheme](static/images/retro-colors.png)
 
-The red color is `#CD6C4A`.
+* Red color: `#CD6C4A`
 
-The light brown color is `#b1987f`
+* Light brown color: `#b1987f`
+
+* Brown: `#6F5643`
+
+* White: `#f3f3f3`
+
+* Orange: `#D2A24C`
+
+* Yellow: `#ECE6C2`
+
+* Green: `#73BDA8`
 
 <br>
 
 #### 3. Logo
-The logo was ... add detail, or remove as necessary
+
+The logo was created in a free application that allows users to create logos. I chose the LOGO MAKER app because it has extensive designs, especially vintage designs. And it’s also free of charge and it can be created with a transparent background.
+
+The logo has three parts. Across in the middle is the name of the project: VINTAGE CARS. An image of a classic car enclosed by a circle was provided by the app which gives an obvious meaning to the page. And the laurel underneath signifies honor and distinction.
  
-![show site logo here](assets/docs/image.png)
+![Page Logo](static/images/screenshots/sshot-logo-dark.png)
 
 <br>
  
 #### 4. Wireframing
  
-The wireframes were created for each individual page on three different screen sizes. All the wireframes are down below.
- 
+The wireframes were created for each individual page on three different screen sizes and two different mobile devices.
+<br>
+
+#### The home page
+![Home](static/images/wireframes/homepage.png)
+
+Here are the rest of the wireframes:
+
 <details>
-<summary>Wireframes</summary>
-Home page
- 
-![Home page](#)
- 
 
- 
-![Wish tree page](#)
- 
+<summary>Cars page</summary>
 
- 
-![Send wishes page](#)
- 
-Login/Register page
- 
-![Login/Register page](#)
- 
+![Cars page](static/images/wireframes/cars-page.png)
+
+</details>
+
+<details>
+
+<summary>Events page</summary>
+
+![Events](static/images/wireframes/events-page.png)
+
+</details>
+
+<details>
+
+<summary>Log in and Sign up page</summary>
+
+![Log in and sign up](static/images/wireframes/log-in.png)
+
+</details>
+
+<details>
+
+<summary>Profile page in browser view</summary>
+
+![Profile page browser](static/images/wireframes/profile-lg.png)
+
+</details>
+
+<details>
+<summary>Profile page in medium and small devices</summary>
+
+![Profile page in medium and small devices](static/images/wireframes/profile-md-sm.png)
+
+</details>
+
+<details>
+
+<summary>Contact Us</summary>
+
+![Contact Us page]()
+
 </details>
  
 [Back to Top](#table-of-contents)
