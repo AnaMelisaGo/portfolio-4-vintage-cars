@@ -280,6 +280,16 @@ Time was running out fast, so I did some model modifications at the last minute.
  
 ## Features
 
+### Navigation bar and Logo
+
+The navbar is responsive and the logo serves as the home botton.
+
+![The navbar](static/images/screenshots/screenshot-navbar.png)
+
+Responsive navbar
+
+![Responsive navbar](static/images/screenshots/screenshot-navbar-responsive.png)
+
 ### Home page
 The home page has 3 sections. The top section has a carousel for a sneak peek of some photos of classic cars with a brief introduction about the page. The middle sectio is about the page explaining the purposes and what users can obtain from the site. And the last section is a short information note on how to rent these cars.
 
@@ -292,6 +302,8 @@ The first thing that shows when the page is opened are the lists of cars that al
 Just like in the home page, the first thing shown is the image uploaded by the author. The name of the car serves as the title of the post. But it could be anything that the author wants. This goes just on the bottom part of the image along with the name of the author, the year of manufacture, the date created and the date updated.
  
 The content goes beneath the image. It can be styled and other photos can be attached in the content thanks to the editor included in the form, Summernote. If a user is logged in, this user can give a like on the post or a comment. And if the car is available for rent, a button is enabled to contact the administrator of the website. Underneath are the list of comments. The comment field is set to prevent users from posting empty comments by adding the `required` attribute and setting it to `true`.
+
+![Comment form](static/images/screenshots/screenshot-comment-form.png)
 
 
 [Back to Top](#table-of-contents)
