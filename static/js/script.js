@@ -1,8 +1,8 @@
 let btn = $('.up-button');
 
 /* tooltip */
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
 $(document).ready(function() {      
     $(function() {
@@ -22,7 +22,7 @@ $(window).scroll(function () {
         btn.addClass('show');
     } else {
         btn.removeClass('show');
-    }
+    };
 });
 
 btn.on('click', function (e) {
