@@ -10,8 +10,7 @@
        * [1. Font](#1-font)
        * [2. Color Scheme](#2-color-scheme)
        * [3. Logo](#3-logo)
-       * [4. Geometry](#4-geometry)
-       * [5. Wireframing](#5-wireframing)
+       * [4. Wireframing](#5-wireframing)
 * [Technology Used](#technology-used)
 * [Database](#database)
 * [Features](#features)
@@ -26,7 +25,7 @@
  
 ## Welcome to Vintage Cars!
 
-![show final site image here](static/images/screenshots/sshot-logo-dark.png)
+![show final site image here](static/images/screenshots/screenshot-amiresponsive.png)
  
 ***
  
@@ -38,12 +37,14 @@ With this project, I want to showcase the simplicity but elegant style of these 
 
 This project is to show how easy and fast a single framework can build a real-life website with complete functionality and libraries to choose from. Django is an open-source web framework that provides an easy and efficient way to create websites with minimum hassles. It comes with resources that are required by developers, specially those who are just starting their journey in Software Development.
 
+<br>
 
 ### Favicon
 I opted to use an image of a very well known classic car as the favicon of my project.
 
 ![show favicon site image here](static/images/favicon.ico)
 
+<br>
 
 ### Functionality of Project
 
@@ -59,7 +60,7 @@ A contact page is available for anyone who wants to rent a car or has any enquir
  
 ## User Experience:
  
-#### User Stories:
+### User Stories:
 _Generic (Guest/Public) User:_
 * As a Generic User, I want to browse through different types of classic cars.
 * As a Generic User, I want to be able to filter out the cars that are available for rent.
@@ -67,8 +68,9 @@ _Generic (Guest/Public) User:_
 * As a Generic User, I want to be able to read about any upcoming event in the future.
 * As a Generic User, I want to be able to rent my favorite car.
 * As a Generic User, I want to contact the website for any enquiries.
-
  
+<br>
+
 _Registers (Logged in) User:_
 * As a Registered User, I want to be able to enjoy a ride with my favorite classic cars by renting one anytime.
 * As a Registered User, I want to enjoy the car without worrying about the car expenses and maintenance.
@@ -76,27 +78,34 @@ _Registers (Logged in) User:_
 * As a Registered User, I want to post, edit and delete a classic car.
 * As a Registered User, I want to filter my posts so that I can manage them all, more especially those posts pending to be published.
 * As a Registered User, I want to be able to view any upcoming event and be able to be part of it.
- 
+
+<br>
+
 _Administrator:_
 * As an Administrator, I want to promote a very friendly community who wants to help and share with other users.
 * As an Administrator, I want to notify the whole community about upcoming events regarding classic cars anywhere.
 
+<br>
+
 _Developer:_
-*As a Developer, I want to to be able to make a fully functioning webpage.
-*As a Developer, I want to use and apply the different languages I learned.
-*As a Developer, I want to upgrade my knowledge to gain more skills.
+* As a Developer, I want to to be able to make a fully functioning webpage.
+* As a Developer, I want to use and apply the different languages I learned.
+* As a Developer, I want to upgrade my knowledge to gain more skills.
 
+<br>
 
-#### Design
+### Design
  
-##### 1. Font
-Google fonts were used in this project. For the heading, PLAYFAIR DISPLAY was used to give it a vintage but elegant vibe. For the navbar font, SPECIAL ELITE was used to apply a look of an old typewriter. For the rest of the website I used SPACEMONO.
- 
-##### 2. Color Scheme
+#### 1. Font
+Google fonts were used in this project. For the heading, `PLAYFAIR DISPLAY` was used to give it a vintage but elegant vibe. For the navbar font and some other area, `SPECIAL ELITE` was used to apply a look of an old typewriter style. For the rest of the website `SPACEMONO` was used.
 
-The color scheme I used in this project are neutral colors. Black provides elegance and simplicity. I used other neutral colors to add some life to the page.
+<br>
 
-The main page background belongs to Shecodes gradient color palette that allows students to use them for their projects. I did some modifications of the colors follow the chosen color scheme.
+#### 2. Color Scheme
+
+The colors I used for this project are neutral colors. Black is mainly used throughout the project. It provides elegance and simplicity. I used other neutral colors to add more life and appeal to the page.
+
+The main page background belongs to Shecodes gradient color palette for students/alumni to use in their projects. I did some modifications of the colors follow the chosen color scheme.
 
 The background gradient color code is `linear-gradient(179.2deg, rgb(34, 34, 34) 0%, rgb(15, 18, 22) 29.7%, rgb(37, 47, 53) 63.4%, rgba(49, 65, 75, 0.8) 100.1%)`
 
@@ -109,16 +118,15 @@ The red color is `#CD6C4A`.
 The light brown color is `#b1987f`
 
 <br>
-##### 3. Logo
+
+#### 3. Logo
 The logo was ... add detail, or remove as necessary
  
 ![show site logo here](assets/docs/image.png)
+
+<br>
  
-##### 4. Geometry
- 
-The application's geometrical aspects...
- 
-##### 5. Wireframing
+#### 4. Wireframing
  
 The wireframes were created for each individual page on three different screen sizes. All the wireframes are down below.
  
@@ -128,11 +136,11 @@ Home page
  
 ![Home page](#)
  
-Wish tree page
+
  
 ![Wish tree page](#)
  
-Send wishes page
+
  
 ![Send wishes page](#)
  
