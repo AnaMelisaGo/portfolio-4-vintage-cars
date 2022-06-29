@@ -9,16 +9,17 @@
             <div class="row">
                 <div class="col text-center px-3">
                     <h1 class="my-5">Log In</h1>
-                    <p>Log in to your profile. <br> If you're not registered yet, click <a href="{% url 'register' %}" class="reg-link t-white">here</a>.</p>
+                    <p>Log in to your profile. <br> If you're not registered yet, click <a href="{% url 'register' %}"
+                            class="reg-link t-white">here</a>.</p>
                 </div>
             </div>
             <!-- Sign up form -->
             <div class="row text-center">
                 <div class="col">
                     <form method="POST" class="mt-2 mb-5">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                    <button type="submit" class="btn vintage-btn hvr-ripple-out">Log in</button>   
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn vintage-btn hvr-ripple-out">Log in</button>
                     </form>
                 </div>
             </div>

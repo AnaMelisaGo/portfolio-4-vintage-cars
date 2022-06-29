@@ -1,4 +1,5 @@
-/* -----------  Google fonts  -------------------------------------------------------------------------------------------------- */
+/* -----------  Google fonts  ------------------------------------------------------------------------------------------- */
+
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Space+Mono&family=Special+Elite&display=swap');
 
 /* -----------  Root  -------------------------------------------------------------------------------------------------- */
@@ -156,6 +157,7 @@ footer {
 .footer-cont {
     text-align: center;
 }
+
 .footer-link {
     color: var(--vintage-drk-brown);
 }
@@ -199,8 +201,6 @@ footer {
 .card-text {
     padding: 15px;
 }
-
-
 
 
 /* -----------  Cars  -------------------------------------------------------------------------------------------- */
@@ -674,7 +674,7 @@ iframe[style] {
 }
 
 
-/* -----------  Responsive --------------------------------------------------------------------------------------- */
+/* -----------  404 500 PAGES ----------------------------------------------------------------------------- */
 
 .link-home {
     text-decoration: none;
@@ -707,7 +707,6 @@ iframe[style] {
         width: 200px;
         padding: 10px 0;
     }
-
 
     hr {
         border-top: 0;
@@ -753,6 +752,10 @@ iframe[style] {
 
 /* small devices */
 @media (max-width: 575.98px) {
+    .carousel-caption P {
+        display: none;
+    }
+    
     #navbarResponsive {
         top: 106px;
     }

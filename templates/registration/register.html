@@ -16,15 +16,16 @@
             <div class="row justify-content-center mb-5">
                 <div class="col-md-8 col-10 offset">
                     <form method="POST" class="mt-5">
-                                {% csrf_token %}
-                                {{ form.as_p }}
+                        {% csrf_token %}
+                        {{ form.as_p }}
                         <div class="d-flex justify-content-center">
 
                             <button type="submit" class="btn vintage-btn hvr-ripple-out my-4">Sign Up</button>
                         </div>
                     </form>
                     <div class="text-center mb-5">
-                        <small>Already registered? click <a href="{% url 'login' %}" class="reg-link t-white">here</a> to log in.</small>
+                        <small>Already registered? click <a href="{% url 'login' %}" class="reg-link t-white">here</a>
+                            to log in.</small>
                     </div>
                 </div>
             </div>
