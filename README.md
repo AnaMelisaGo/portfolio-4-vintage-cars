@@ -90,13 +90,22 @@ _Developer:_
 #### Design
  
 ##### 1. Font
-lorem
+Google fonts were used in this project. For the heading, PLAYFAIR DISPLAY was used to give it a vintage but elegant vibe. For the navbar font, SPECIAL ELITE was used to apply a look of an old typewriter. For the rest of the website I used SPACEMONO.
  
 ##### 2. Color Scheme
 
+The color scheme I used in this project are neutral colors. Black provides elegance and simplicity. I used other neutral colors to add some life to the page.
+
+The main page background belongs to Shecodes gradient color palette that allows students to use them for their projects. I did some modifications of the colors follow the chosen color scheme.
+
+The background gradient color code is `linear-gradient(179.2deg, rgb(34, 34, 34) 0%, rgb(15, 18, 22) 29.7%, rgb(37, 47, 53) 63.4%, rgba(49, 65, 75, 0.8) 100.1%)`
+
+The rest of the colors I used are as follows:
+
 ![Color Scheme](static/images/retro-colors.png)
- 
-This is the color scheme I selected for this project.
+
+The red color is `#CD6C4A`
+The light brown color is `#b1987f`
  
 ##### 3. Logo
 The logo was ... add detail, or remove as necessary
