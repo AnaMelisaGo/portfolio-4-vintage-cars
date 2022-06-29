@@ -211,7 +211,7 @@ Here are the rest of the wireframes:
 
 * [Django](https://www.djangoproject.com/) is a high-level Python web framework that encourages rapid development and clean, design. It's free and open source.
 
-* [Bootstrap](https://getbootstrap.com/) a front-end framework used to create modern websites and web apps.
+* [Bootstrap](https://getbootstrap.com/) a front-end framework used to style the project.
 
 * [Gitpod](https://www.gitpod.io/) is an IDE using VS Code for remote development.
 
@@ -227,6 +227,8 @@ Here are the rest of the wireframes:
 * Balsamiq: for wireframes creations.
 
 * PostgreSql: an open source relational database. Used throughout the project.
+
+* Cloudinary to store files for the webpage.
 
 * Logo Maker: a mobile app used to create the logo and the heading of some pages of this project.
 
@@ -254,6 +256,8 @@ Here are the rest of the wireframes:
 
 * ColorZilla is an eyedropper extension that assists web developers and graphic designers with color related tasks. Used in this project to pick colors.
 
+* Amiresponsive to mockup the webpage responsive design.
+
 * Validator used:
    - [W3C Markup Validator](https://validator.w3.org/)
    - [W3C CSS Validator](https://validator.w3.org/)
@@ -263,14 +267,22 @@ Here are the rest of the wireframes:
 ## Database
 
 #### Database Schema:
+
+![Database schema](static/images/database-schema.png)
+
+PostgreSql is used throughout the project by the help of Heroku addons. The database schema is drafted which serves as a guide before making the view models. The database consists of 4 tables: User, PostCar, Comment, and Event.
  
-Detail the db schema here (if applicable)....images, thoughts behind fks etc
+When a user is created, the username is the foreignKey for the PostCar that serves as the author of the post. Each post created by a user has an id that is used as the foreignKey of the comment and for CRUD funtionality.
+ 
+If a user is a staff member, this user can create, update, and delete events. But anyone, generic and registered users can view them, as well as the classic car posts.
+ 
+Time was running out fast, so I did some model modifications at the last minute. But it didn’t affect the final result.
  
 ## Features
  
 The project boasts several key features:
 * Create: ...
- 
+
 [Back to Top](#table-of-contents)
  
 #### Future Features:
