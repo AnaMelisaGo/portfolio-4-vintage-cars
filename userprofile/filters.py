@@ -24,7 +24,10 @@ class PostCarFilter(django_filters.FilterSet):
         label='Car Model',
         widget=TextInput(attrs={'placeholder': 'Car Model'}),
     )
-    can_rent = BooleanFilter(widget=CanRentWidget)
+    can_rent = BooleanFilter(
+        label='For rent',
+        widget=CanRentWidget
+    )
 
     class Meta:
         """ class meta filter """
