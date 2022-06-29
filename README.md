@@ -104,9 +104,11 @@ The rest of the colors I used are as follows:
 
 ![Color Scheme](static/images/retro-colors.png)
 
-The red color is `#CD6C4A`
+The red color is `#CD6C4A`.
+
 The light brown color is `#b1987f`
- 
+
+<br>
 ##### 3. Logo
 The logo was ... add detail, or remove as necessary
  
