@@ -312,8 +312,10 @@ The content goes beneath the image. It can be styled and other photos can be att
 ### The Profile page
 When the user is not logged in, navbar shows the option to log in. And on the contrary, if the user is logged in the Profile option is shown.
 Below the main navbar is another navbar that contains the username, the add post button and the logout button if the user is logged in or the login button if the user is not.
+
 Inside this page, it displays the list of all the posts that the user had published and those posts that are left as draft.
 A filter is added to this page so that the user can easily find any post by the name, the status (draft or published), and filter the cars whether it’s available for rent or not.
+
 Each card post has different buttons to view, edit or delete posts. The view redirects the same as the view function from the cars page. The edit function gets the instance of the post to be edited and saved. The post deletes completely from the page.
 
 ![Filter bar](static/images/screenshots/screenshot-filter.png)
@@ -331,7 +333,36 @@ The event page has the same feature as the car blog post. The only difference is
 <br>
 
 
+
+### The sign up, login and logout
+
+I kept the sign up form as simple as possible. New users can register by clicking the sign up button on the profile page. 
+
+![Login/signup](static/images/screenshots/screenshot-profile-navbar.png)
+
+![Sign up](static/images/screenshots/screenshot-signup-form.png)
+
+When the user is already registered, just click the login button on the profile navbar button.
+
+![Login](static/images/screenshots/screenshot-login-form.png)
+ 
+To logout, a button is enabled beside the add post button on the profile navbar.
+
+![Logout](static/images/screenshots/screenshot-logout-profile.png)
+
+static/images/screenshots/screenshot-logout-profile.png
 [Back to Top](#table-of-contents)
+
+<br>
+
+### Contact Us page
+
+![Contact page](static/images/screenshots/screenshot-contact-us-form.png)
+
+This page is accessible from the main navbar. Anyone who wants to enquire or anyone who clicked the button `rent a car` from the post detail will be redirected to this page so they can fill up this form and the administrator will receive an email with all the data provided. And at the same time the user who fills up the form will receive an email response. Emailjs is used for this functionality.
+
+![Email Response](static/images/screenshots/screenshot-response-email.png)
+
  
 #### Future Features:
  
