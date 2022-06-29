@@ -295,15 +295,40 @@ The home page has 3 sections. The top section has a carousel for a sneak peek of
 
 <br>
 
-The Cars page
+### The Cars page
 
-The first thing that shows when the page is opened are the lists of cars that all users had published in the site. When the mouse is on top of each post or a post is selected (small and medium devices), the image has a zoom out effect and the view options pops up. This icon opens the entire post content. The title serves as a link to open the post too.
+The first thing that shows when the page is opened are the lists of cars that all users had published in the site.  A filter bar is available on this page so that users can find any post they are interested in. Django-filter is used for this feature. Can be filtered by name, year of manufacture (min and max) or if the car is available for rent. 
+
+When the mouse is on top of each post or a post is selected (small and medium devices), the image has a zoom out effect and the view options pops up. This icon opens the entire post content. The title serves as a link to open the post too.
  
-Just like in the home page, the first thing shown is the image uploaded by the author. The name of the car serves as the title of the post. But it could be anything that the author wants. This goes just on the bottom part of the image along with the name of the author, the year of manufacture, the date created and the date updated.
+Just like in the home page, the first thing shown when a user opens the post is the image uploaded by the author. The name of the car serves as the title of the post. But it could be anything that the author wants. This goes just on the bottom part of the image along with the name of the author, the year of manufacture, the date created and the date updated.
  
 The content goes beneath the image. It can be styled and other photos can be attached in the content thanks to the editor included in the form, Summernote. If a user is logged in, this user can give a like on the post or a comment. And if the car is available for rent, a button is enabled to contact the administrator of the website. Underneath are the list of comments. The comment field is set to prevent users from posting empty comments by adding the `required` attribute and setting it to `true`.
 
 ![Comment form](static/images/screenshots/screenshot-comment-form.png)
+
+<br>
+
+### The Profile page
+When the user is not logged in, navbar shows the option to log in. And on the contrary, if the user is logged in the Profile option is shown.
+Below the main navbar is another navbar that contains the username, the add post button and the logout button if the user is logged in or the login button if the user is not.
+Inside this page, it displays the list of all the posts that the user had published and those posts that are left as draft.
+A filter is added to this page so that the user can easily find any post by the name, the status (draft or published), and filter the cars whether it’s available for rent or not.
+Each card post has different buttons to view, edit or delete posts. The view redirects the same as the view function from the cars page. The edit function gets the instance of the post to be edited and saved. The post deletes completely from the page.
+
+![Filter bar](static/images/screenshots/screenshot-filter.png)
+
+<br>
+
+### The Event page
+
+![Event Post](#)
+ 
+The event page has the same feature as the car blog post. The only difference is that events can only be created by staff members. Admin users can create an event post, edit an event, and delete it. The add event button is at the bottom of the page to give it another style. With the help of my mentor I manage to add login required to each of the views (create, update, delete) and add permission required mixin in the Event app so that non-staff users and non-registered users cannot access any of the posts. I added the same code to the Cars app to prevent other users from updating or deleting other users posts and redirecting them to their own profile page.
+
+![EditCarPost view](static/images/screenshots/screenshot-edit-view.png)
+
+<br>
 
 
 [Back to Top](#table-of-contents)
