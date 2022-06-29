@@ -176,7 +176,7 @@ class EditCarPost(View):
             messages.add_message(
                     request,
                     messages.ERROR,
-                    "You are not allowed to update this post. " + 
+                    "You are not allowed to update this post. " +
                     "Please select one of your posts instead. Thank you!"
                 )
             return redirect('user_profile')
@@ -226,7 +226,7 @@ class DeleteCarPost(View):
             messages.add_message(
                     request,
                     messages.ERROR,
-                    "You are not allowed to delete this post. " + 
+                    "You are not allowed to delete this post. " +
                     "Please select one of your posts instead. Thank you!"
                 )
             return redirect('user_profile')
