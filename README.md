@@ -192,24 +192,76 @@ Here are the rest of the wireframes:
 
 <summary>Contact Us</summary>
 
-![Contact Us page]()
+![Contact Us page](static/images/wireframes/contact-us.png)
 
 </details>
- 
+
+<br>
+
 [Back to Top](#table-of-contents)
  
 ## Technology Used
  
 #### Languages, Frameworks, Editors & Version Control:
  
-* add notes here on techstack...
+* Core languages
+   - HTML & CSS: For the main structure of the contents and style
+   - Javascript: for a dynamic control of objects and elements in the webpage
+   - Python: Object-oriented programming language
+
+* [Django](https://www.djangoproject.com/) is a high-level Python web framework that encourages rapid development and clean, design. It's free and open source.
+
+* [Bootstrap](https://getbootstrap.com/) a front-end framework used to create modern websites and web apps.
+
+* [Gitpod](https://www.gitpod.io/) is an IDE using VS Code for remote development.
+
+* [Git](https://git-scm.com/) is used for version control.
+
+* [Github](https://github.com/) is used to host the project repository and linked to heroku
+
+* [Heroku](https://www.heroku.com/) is a container-based cloud Platform to deploy and manage apps. Used to deploy this project.
+
  
 #### Tools Used:
  
-* add notes here on tools used to assist in developing the project...
+* Balsamiq: for wireframes creations.
+
+* PostgreSql: an open source relational database. Used throughout the project.
+
+* Logo Maker: a mobile app used to create the logo and the heading of some pages of this project.
+
+* [Removebg](https://www.remove.bg/) is an online application to remove image background. It's fast and free.
+
+* [Iloveimg](https://www.iloveimg.com/) is an online photo editor used to edit and crop images for this project.
+
+* [Online Gif Tools](https://onlinegiftools.com/create-transparent-gif) an online GIF transparency maker utility. Used to remove annoying background of some gif used in this project.
+
+* Grammarly to spell check any grammar error for this project.
+
+* Gmail is used to send and recieve email when user sends a message.
+
+* Emailjs is used to send automatic emails by creating templates and use Javascript to send emails.
+
+* Fontawesome for the icons.
+
+* Hover CSS for the hover effects of the icons.
+
+* [Sweetalert2](https://sweetalert2.github.io/) is used to prompt a very attractive and responsive alert using Javascript. Used CDN to include it to the project.
+
+* JQuery is a lightweight JavaScript library. Used to create datepicker for this project and for manipulation and event handling.
+
+* [dbdiagram](https://dbdiagram.io) to create database schema.
+
+* ColorZilla is an eyedropper extension that assists web developers and graphic designers with color related tasks. Used in this project to pick colors.
+
+* Validator used:
+   - [W3C Markup Validator](https://validator.w3.org/)
+   - [W3C CSS Validator](https://validator.w3.org/)
+   - [JSHint](https://jshint.com/)
+   - [PEP8 Validator](http://pep8online.com/)
  
 ## Database
- 
+
 #### Database Schema:
  
 Detail the db schema here (if applicable)....images, thoughts behind fks etc
