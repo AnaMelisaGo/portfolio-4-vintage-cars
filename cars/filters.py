@@ -30,7 +30,7 @@ class PostCarFilter(django_filters.FilterSet):
         label='Year manufactured',
         widget=TextInput(attrs={'placeholder': 'min'}),
     )
-    year_manufactured_min = CharFilter(
+    year_manufactured_max = CharFilter(
         field_name='year_manufactured',
         lookup_expr='gte',
         label='Year manufactured',
