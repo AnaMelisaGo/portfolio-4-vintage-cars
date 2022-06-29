@@ -279,9 +279,20 @@ If a user is a staff member, this user can create, update, and delete events. Bu
 Time was running out fast, so I did some model modifications at the last minute. But it didn’t affect the final result.
  
 ## Features
+
+### Home page
+The home page has 3 sections. The top section has a carousel for a sneak peek of some photos of classic cars with a brief introduction about the page. The middle sectio is about the page explaining the purposes and what users can obtain from the site. And the last section is a short information note on how to rent these cars.
+
+<br>
+
+The Cars page
+
+The first thing that shows when the page is opened are the lists of cars that all users had published in the site. When the mouse is on top of each post or a post is selected (small and medium devices), the image has a zoom out effect and the view options pops up. This icon opens the entire post content. The title serves as a link to open the post too.
  
-The project boasts several key features:
-* Create: ...
+Just like in the home page, the first thing shown is the image uploaded by the author. The name of the car serves as the title of the post. But it could be anything that the author wants. This goes just on the bottom part of the image along with the name of the author, the year of manufacture, the date created and the date updated.
+ 
+The content goes beneath the image. It can be styled and other photos can be attached in the content thanks to the editor included in the form, Summernote. If a user is logged in, this user can give a like on the post or a comment. And if the car is available for rent, a button is enabled to contact the administrator of the website. Underneath are the list of comments. The comment field is set to prevent users from posting empty comments by adding the `required` attribute and setting it to `true`.
+
 
 [Back to Top](#table-of-contents)
  
