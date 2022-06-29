@@ -756,6 +756,10 @@ iframe[style] {
         display: none;
     }
     
+    .nav .text-link {
+        font-size: 10px;
+    }
+
     #navbarResponsive {
         top: 106px;
     }

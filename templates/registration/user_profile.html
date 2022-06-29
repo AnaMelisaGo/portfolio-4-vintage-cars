@@ -20,12 +20,14 @@
             <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 mb-md-0">
                 <li>
                     <a href="{% url 'add_car' %}" class="nav-link add-link t-white mx-2 hvr-icon-pop">
-                        Add Post <span><i class="fas fa-plus-circle hvr-icon"></i></span>
+                        <span class="text-link">Add Post</span>
+                        <i class="fas fa-plus-circle hvr-icon"></i>
                     </a>
                 </li>
                 <button type="button" class="btn t-white mx-2 px-4 hvr-icon-wobble-horizontal" data-bs-toggle="modal"
                     data-bs-target="#modal-logout">
-                    LogOut <span><i class="fas fa-sign-out-alt hvr-icon"></i></span>
+                    <span class="text-link">LogOut</span>
+                    <i class="fas fa-sign-out-alt hvr-icon"></i>
                 </button>
             </ul>
             {% else %}
