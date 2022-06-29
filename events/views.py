@@ -8,7 +8,7 @@ from .forms import EventForm
 
 class EventListView(generic.ListView):
     """
-    View the events
+    View the lists of upcoming events
     """
     model = Event
     template_name = 'events/events_list.html'
@@ -22,7 +22,7 @@ class EventListView(generic.ListView):
 
 class EventDetail(generic.DetailView):
     """
-    To view the detail of the event
+    To view the detail of each event
     """
     model = Event
     template_name = "events/event_detail.html"
@@ -100,7 +100,7 @@ class EditEventView(PermissionRequiredMixin, View):
 
     def post(self, request, pk, *args, **kwargs):
         """
-        Takes the content of the event post and put them on each field. 
+        Takes the content of the event post and put them on each field.
         Request.FILES or None is used to get media files to be posted.
         """
         event = get_object_or_404(Event, pk=pk)
@@ -127,7 +127,7 @@ class DeleteEventView(PermissionRequiredMixin, View):
     To delete an event post
     """
     permission_required = 'is_staff'
-    
+
     def get(self, request, pk, *args, **kwargs):
         """
         A function that deletes the desired object and redirects
