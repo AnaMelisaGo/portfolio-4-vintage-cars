@@ -86,6 +86,10 @@ footer {
     background-color: transparent;
 }
 
+.bg-brown {
+    background-color: var(--vintage-brown);
+}
+
 /* -----------  Navbar  -------------------------------------------------------------------------------------------------- */
 .alert {
     z-index: 100;

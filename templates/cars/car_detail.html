@@ -37,7 +37,7 @@
 <article class="mb-4 mt-4">
     <a class="up-button"></a>
     <div class="container px-4">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center bg-brown py-3">
             <div class="col-md-10">
                 <p>{{ post_car.content | safe }}</p>
                 <div class="row ms-3">
@@ -60,10 +60,10 @@
                         </form>
                         {% else %}
                         <div class="t-white">
-                            <i class="far fa-heart hvr-icon"></i>
+                            <i class="far fa-heart"></i>
+                            <span class="t-white fs-5">{{ post_car.number_of_likes }}</span>
                         </div>
                         {% endif %}
-                        <span class="t-white fs-5">{{ post_car.number_of_likes }}</span>
                     </div>
                     <!-- comments icon -->
                     <div class="col-2 comment-icon">
