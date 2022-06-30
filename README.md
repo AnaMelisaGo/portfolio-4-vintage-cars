@@ -361,8 +361,6 @@ This page is accessible from the main navbar. Anyone who wants to enquire or any
 
 ![Email Response](static/images/screenshots/screenshot-response-email.png)
 
-
-
 ### 404 and 500 page
 
 When page is not found, a 404 is rendered. When server error a 500 is rendered.
@@ -532,6 +530,22 @@ Heroku needs the following files to be able to deploy successfully:
 * [SheCodes](https://www.shecodes.io/) Coding workshop for women
 
 * [Codemy](https://www.youtube.com/c/Codemycom)
+
+* [Hover Underline](https://www.30secondsofcode.org/css/s/hover-underline-animation)
+
+* [Photo container](https://codepen.io/francisco-kataldo/pen/LBBryV)
+
+* [Add a contaier](https://www.codegrepper.com/code-examples/python/pass+context+data+with+templateview+in+django)
+
+* [Set up form](https://stackoverflow.com/questions/53973767/how-to-set-multiple-widget-setting-to-a-input-box)
+
+* [Inject script](https://stackoverflow.com/questions/65900579/django-javascript-tag-at-the-end-of-a-base-html-file-structure)
+
+* [Javascript hide](https://bobbyhadz.com/blog/javascript-hide-element-after-few-seconds)
+
+* [Access variables in JS](https://stackoverflow.com/questions/62797296/how-to-access-environment-variable-from-html-or-js-in-django)
+
+* [Datepicker](https://www.geeksforgeeks.org/jquery-ui-date-picker/)
 
 ### Content
 
