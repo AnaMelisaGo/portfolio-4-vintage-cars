@@ -50,7 +50,7 @@ I opted to use an image of a very well known classic car as the favicon of my pr
 
 There are different functionalities that are implemented in this project. One of them is to be able to register, to log in the registered username and to log out.
 
-Any users, general users and registered users can view and read any post created. Those posts are created only by registered users. It can also be updated or deleted only by the author.
+Any users (general and registered users) can view and read any post created in the website. Those posts are created only by registered users. It can also be updated or deleted only by the author.
 
 The Events section is integrated to the web page where anyone can browse to different upcoming events. Only admin staff can create, update and delete these posts. The rest of users can only read the content.
 A contact page is available for anyone who wants to rent a car or has any enquiry regarding a car, a post or the webpage.
@@ -72,12 +72,13 @@ _Generic (Guest/Public) User:_
 <br>
 
 _Registers (Logged in) User:_
-* As a Registered User, I want to be able to enjoy a ride with my favorite classic cars by renting one anytime.
+* As a Registered User, I want to be able to enjoy my favorite classic cars by renting it anytime.
 * As a Registered User, I want to enjoy the car without worrying about the car expenses and maintenance.
 * As a Registered User, I want to be a part of a community of avid fans of classic and vintage cars.
 * As a Registered User, I want to post, edit and delete a classic car.
 * As a Registered User, I want to filter my posts so that I can manage them all, more especially those posts pending to be published.
 * As a Registered User, I want to be able to view any upcoming event and be able to be part of it.
+* As a Registered User, I want to be able to post my car for rent to gain some cash.
 
 <br>
 
@@ -88,7 +89,7 @@ _Administrator:_
 <br>
 
 _Developer:_
-* As a Developer, I want to to be able to make a fully functioning webpage.
+* As a Developer, I want to be able to create a fully functional website.
 * As a Developer, I want to use and apply the different languages I learned.
 * As a Developer, I want to upgrade my knowledge to gain more skills.
 
@@ -399,7 +400,7 @@ When page is not found, a 404 is rendered. When server error a 500 is rendered.
  
 ## Testing, found bugs and fixes
  
-Testing was carried out manually throughout the development of this project. Constant testing was done using Chrome Dev tools. Testing was carried out with the following validators:
+Testing was carried out manually throughout the development of this project. Constant testing was done using Chrome Dev tools. Tested the website in different devices and sizes. Testing was carried out with the following validators:
 
 * PEP8 python Validator
 
@@ -415,6 +416,8 @@ All validity tests passed.
 
 * My navbar wasn’t working well in the early stage of the project, but I fixed it by using position absolute.
 
+* Fixed the page with this [solution from Dev.to](https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14) to push the navbar and the footer in their places even though the body doesn't contain anything.
+
 * During the implementation of the contact us page, I got stocked with emailjs due to the scripts. I fixed it by injecting script using jinja template
 `{% block script %}`
 `{% endblock %}`
@@ -427,27 +430,126 @@ All validity tests passed.
  
 #### Defensive Design
  
-Defensive design for this application was...
+Defensive design was applied during the development of this project.
  
+To prevent any user from posting an empty comment, the required attribute had been added to the form.
+`widgets = {'comment_body': forms.Textarea(attrs={'class': 'form-control', 'rows', 'required': 'true'}),}`
 
-With some help, I manage to add login required to each of the views (create, update, delete) and add permission required mixin in the Event app so that non-staff users and non-registered users cannot access any of the posts. I added the same code to the Cars app to prevent other users from updating or deleting other users posts and redirecting them to their own profile page.
+A modal is added when a user tries to logout or delete any post. The action needs to be confirmed before being executed. This is very helpful for any accidental clicks.
+ 
+Sweetalert is a javascript library where custom alerts can be used in the website. I used this alert to notify the user when the form is successfully sent.
+
+With the guidance and help of my mentor, I manage to add login required to each of the url views (create, update, delete) and add permission required mixin in the Event app so that non-staff users and non-registered users cannot access any of the posts. I added the same code to the Cars app to prevent other users from updating or deleting other users posts and redirecting them to their own profile page.
+
 ![EditCarPost view](static/images/screenshots/screenshot-edit-view.png)
 
 ## Deployment
  
-Detail deployment here...
+Heroku is a Paas cloud service, used to deploy projects. It's free.
+
+Heroku needs the following files to be able to deploy successfully:
+* Procfile
+* requirements.txt
+
+### Heroku
+
+1. Go to Heroku and create an app.
+
+2. Give the new app a unique name, select the nearest region. Then click `create app` .
+
+### Deploy to Heroku using CLI
+
+1. Install heroku in the terminal `npm install -g heroku`
+
+2. Log in to heroku using `heroku log -i`
+
+3. Type the credentials:
+
+* Email: `The email used to create heroku`
+* Password: `When multi authentication is enabled, password is the APIkey`
+
+4. Add everything to staging area. 
+
+5. Perform git commit.
+
+6. Check remote page: `git remote -v`.
+
+7. If heroku not listed as remote, go to Heroku and open settings of the app.
+
+8. Copy Heroku `git URL` of the app.
+
+9. Add new remote: `git remote add heroku <heroku_git_URL>`
+
+10. Check if new remote is created (origin and heroku)
+
+11. Execute push
+
+  * `git push origin main`
+  * `git push heroku main`
+
+### Automatic Deploys from Github
+
+1. Click on Deploy tab in the Heroku app.
+
+2. Click "Connect to Github" icon.
+
+3. Scroll down and click the button "Connect to Github".
+
+4. Enter the repository name in the text field and click search.
+
+5. If repository exists, click the button `Connect` when it apperas.
+
+6. Click button `Enable Automatic Deploys`.
+
+7. Scroll down and click the button deploy branch.
+
+8. Deployment progress can be seen through the box. When deployment success, a button will appear to at the bottom to view the deployed page.
  
 [Back to Top](#table-of-contents)
  
 ## Credits
  
-* background fix= https://css-tricks.com/perfect-full-page-background-image/
+### Photos
+* Pixabay (vintage cars):
+  - [Jose Mueses](https://www.pexels.com/photo/photo-of-five-cars-parked-1280560/)
+  - [Neil Kelly](https://www.pexels.com/photo/vintage-blue-sedan-712614/)
+  - [Ford Mustang](https://www.pexels.com/photo/red-ford-mustang-57409/)
+
+* [World map image](https://www.kindpng.com/imgv/TmRTibw_illustration-hd-png-download/)
+
+### Media
+* [Car light gif](https://gfycat.com/ampleheavenlybangeltiger)
+
+* [Car ligh flashed gif](https://www.pinterest.es/pin/544091198710744798/)
+
+* [Monkey gif](https://www.pinterest.es/pin/642748178043183416/)
+
+* [Mechanic gif](https://gfycat.com/annualdeepacornweevil)
+
+### Code
+* [SheCodes](https://www.shecodes.io/) Coding workshop for women
+
+* [Codemy](https://www.youtube.com/c/Codemycom)
+
+### Content
+
+* Wikipedia
+
+* [Salon Classic Madrid](https://salonclassicmadrid.com/)
  
 [Back to Top](#table-of-contents)
  
 #### Special Thanks & Acknowledgements:
+
+* To my mentor who has been guiding and helping me through out the project.
+
+* To all the tutors, especially Kevin who helped me fix my problem with amiresponsive. It was a life saver.
  
-* Team 11 🤜
+* Team 11 🤜 Christmas Hackathon who inspires me everyday.
+
+* To my family, most especially to my husband who was very supportive throughout my journey, and to my daughter who gives me strength to continue.
+
+* To the slack community and all my fellow student in Code Institute.
  
 ###### <i>Disclaimer: This project was created for educational use only as part of Code Institute's Porject Portfolio 4</i>
  
