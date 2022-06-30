@@ -22,15 +22,15 @@
                         <a class="nav-link {{ events }}" href="{% url 'events' %}">Event</a>
                     </li>
                     {% if user.is_authenticated %}
-                        <li class="nav-item mx-1">
+                        <li class="nav-item">
                             <a class="nav-link {{ user_profile }}" href="{% url 'user_profile' %}">Profile</a>
                         </li>
                     {% else %}
-                    <li class="nav-item mx-1">
+                    <li class="nav-item">
                         <a class="nav-link {{ user_profile }}" href="{% url 'user_profile' %}">Log In</a>
                     </li>
                     {% endif %}
-                    <li class="nav-item mx-1">
+                    <li class="nav-item">
                         <a class="nav-link {{ contact }}" href="{% url 'contact' %}">Contact Us</a>
                     </li>
                 </ul>
