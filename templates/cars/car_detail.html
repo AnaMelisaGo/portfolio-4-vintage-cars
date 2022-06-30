@@ -50,11 +50,14 @@
                             <button type="submit" name="car_post" value="{{ post_car.car_model_tittle }}"
                                 class="hvr-icon-pulse-grow t-red">
                                 <i class="fas fa-heart hvr-icon"></i>
+                                <span class="t-white fs-5">{{ post_car.number_of_likes }}</span>
                             </button>
+
                             {% else %}
                             <button type="submit" name="car_post" value="{{ post_car.car_model_tittle }}"
                                 class="hvr-icon-pulse-grow t-red">
                                 <i class="far fa-heart hvr-icon"></i>
+                                <span class="t-white fs-5">{{ post_car.number_of_likes }}</span>
                             </button>
                             {% endif %}
                         </form>
