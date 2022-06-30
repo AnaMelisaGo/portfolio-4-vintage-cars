@@ -389,7 +389,9 @@ When page is not found, a 404 is rendered. When server error a 500 is rendered.
  
 * For future features of the website, I would like to implement a notification for any form errors.
 
-* A proper profile page would be implemented where users can post their own photo as a profile picture and add some description about themselves and their favorite classic cars.
+* A proper profile page would be implemented where users can post their own photo as a profile picture, be able to put their complete name and add some description about themselves and their favorite classic cars.
+
+* For future feature I would implement a function that enables the user to modify their own data as well as the password and also a recovery of the password in case user couldn't remember it.
 
 * A comment section in the event page and enable the like button for all the created events.
 
