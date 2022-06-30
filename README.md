@@ -329,7 +329,7 @@ Each card post has different buttons to view, edit or delete posts. The view red
 
 ### The Event page
 
-![Event Post](#)
+![Event Post](static/images/screenshots/screenshot-event-list.png)
  
 The event page has the same feature as the car blog post. The only difference is that events can only be created by staff members. Admin users can create an event post, edit an event, and delete it. The add event button is at the bottom of the page to give it another style. 
 
